@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   _draw.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 20:50:50 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/18 21:02:30 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/18 21:07:29 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_H
-# define CONFIG_H
+#ifndef _DRAW_H
+# define _DRAW_H
 
-# define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 600
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 
 #endif

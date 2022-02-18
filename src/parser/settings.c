@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:35:03 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 20:37:36 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/18 20:51:27 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	set_background(char *line, char c)
 
 	cub3d = get_cub3d();
 	i = 1;
-	printf("%s\n", line);
 	while (line[++i] != '\0')
 		if (line[i] != ',' && line[i] != ' ' && !ft_isdigit(line[i]))
 			exit_error("Background (F or C) has invalid char");

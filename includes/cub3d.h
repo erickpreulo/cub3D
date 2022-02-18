@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:12:40 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:25:24 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/18 21:03:23 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@
 # include "../src/utils/_utils.h" 
 # include "../src/parser/_parser.h" 
 # include "../src/debug/_debug.h" 
+# include "../src/draw/_draw.h" 
+# include "../src/engine/_engine.h" 
 
 #endif

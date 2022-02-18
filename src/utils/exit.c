@@ -6,11 +6,22 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:39:41 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:57:38 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/18 21:12:32 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		exit_mlx(t_cub3d *cub3d)
+{
+	if (cub3d && cub3d->win)
+		mlx_destroy_window(cub3d->mlx, cub3d->win);
+	if (cub3d && cub3d->img.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->img.img);
+	safe_exit();
+	printf("Bye bye!\n");
+	exit(0);
+}
 
 void	free_split(char **data)
 {

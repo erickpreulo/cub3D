@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 20:36:56 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/18 20:48:36 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ typedef struct	s_image {
 
 typedef struct	s_cub3d
 {
-	void		*mlx_win;
 	void		*win;
+	void		*mlx;
+	t_image		img;
 	t_config	config;	
 	t_player	player;
 }				t_cub3d;
