@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   _debug.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 23:12:02 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:32:09 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/18 19:25:05 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/18 19:33:04 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef _DEBUG_H
+# define _DEBUG_H
 
-int	main(int argc, char **argv)
-{
-	
-	init(argc, argv);
+void	print_map();
+void	print_info();
 
-
-
-	safe_exit();
-	return (0);
-}	
+#endif

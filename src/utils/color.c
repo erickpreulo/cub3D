@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 23:12:02 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:32:09 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/18 19:47:09 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/18 20:39:31 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+int		create_color(int r, int g, int b)
 {
-	
-	init(argc, argv);
+	return ((r << 16) + (g << 8) + b);
+}
 
+t_color	get_color(int c)
+{	
+	t_color color;
 
-
-	safe_exit();
-	return (0);
-}	
+	color.b = (c) & 0x0ff;
+	color.g = (c >> 8) & 0x0ff;
+	color.r = (c >> 16) & 0x0ff;
+	return (color);
+}

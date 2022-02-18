@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   _init.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 23:12:02 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:32:09 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/18 08:29:35 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/18 10:13:04 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef _INIT_H
+# define _INIT_H
 
-int	main(int argc, char **argv)
-{
-	
-	init(argc, argv);
+t_cub3d	*get_cub3d(void);
+void	init(int argc, char **argv);
+void	read_file();
 
-
-
-	safe_exit();
-	return (0);
-}	
+#endif

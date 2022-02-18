@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   _parser.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 23:12:02 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:32:09 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/18 08:40:32 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/18 11:06:33 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef _PARSER_H
+# define _PARSER_H
 
-int	main(int argc, char **argv)
-{
-	
-	init(argc, argv);
+void	parse_settings(char *line);
+void	push_to_map(char *line);
 
-
-
-	safe_exit();
-	return (0);
-}	
+#endif

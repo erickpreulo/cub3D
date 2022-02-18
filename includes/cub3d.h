@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:12:40 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/17 23:56:29 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/18 19:25:24 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+# include <stdbool.h>
 
 # include "../libft/libft.h"
-
-// # include "mlx.h" // MAC
-# include "../minilibx-linux/mlx.h" // LINUX
+// # include "mlx.h"				// MAC
+# include "../minilibx-linux/mlx.h"	// LINUX
 
 # include "config.h"
 # include "structs.h"
+
+# include "../src/init/_init.h" 
+# include "../src/utils/_utils.h" 
+# include "../src/parser/_parser.h" 
+# include "../src/debug/_debug.h" 
 
 #endif
