@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:19:14 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 09:32:16 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:06:23 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,23 @@
 
 void	draw_ceilling()
 {
-	t_cub3d	*cub3d;
+	t_cub3d		*cub3d;
+	t_position	pos;
 
-	int x;
-	int y;
-
-	x = -1;
 	cub3d = get_cub3d();
-	while(++x < WINDOW_WIDTH)
-	{
-		y = -1;
-		while (++y <= WINDOW_HEIGHT / 2)
-			my_mlx_pixel_put(&cub3d->img, x, y, cub3d->config.ceilling);
-	}
+	pos.x = 0;
+	pos.y = 0;
+	draw_square(pos, WINDOW_WIDTH, WINDOW_HEIGHT / 2, cub3d->config.ceilling);
+
 }
 
 void	draw_floor()
 {
 	t_cub3d	*cub3d;
+	t_position	pos;
 
-	int x;
-	int y;
-
-	x = -1;
-	y = -1;
 	cub3d = get_cub3d();
-	while(++x < WINDOW_WIDTH)
-	{
-		y = WINDOW_HEIGHT / 2;
-		while (++y < WINDOW_HEIGHT)
-			my_mlx_pixel_put(&cub3d->img, x, y, cub3d->config.floor);
-	}
+	pos.x = 0;
+	pos.y = WINDOW_HEIGHT / 2;
+	draw_square(pos, WINDOW_WIDTH, WINDOW_HEIGHT / 2, cub3d->config.floor);
 }

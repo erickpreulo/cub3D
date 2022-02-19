@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:51:53 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 19:37:42 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:26:17 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	open_fd(char *filepath, char *filename)
 	return fd;
 }
 
-void	read_file()
+void	init_file()
 {
 	t_cub3d		*cub3d = get_cub3d();
 	const char	*ext = ft_strrchr(cub3d->config.file, '.');

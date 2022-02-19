@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 20:48:36 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 09:42:59 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct	s_config
 	int			ceilling;
 	t_map		map;
 	char		*file;
+	bool		minimap;
 }				t_config;
 
 typedef struct	s_image {

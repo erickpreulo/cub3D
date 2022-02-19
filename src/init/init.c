@@ -6,18 +6,41 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 09:29:45 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:32:29 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	init_player()
+{
+	t_cub3d	*cub3d;
+	int y;
+	int x;
+	
+	cub3d = get_cub3d();
+	cub3d->player.pos.x = 0;
+	cub3d->player.pos.y = 0;
+	y = -1;
+	while (++y < cub3d->config.map.height)
+	{
+		x = -1;
+		while (cub3d->config.map.map[y][++x])
+			if(cub3d->config.map.map[y][x] == 'N')
+			{
+				cub3d->config.map.map[y][x] = '0';
+				cub3d->player.pos.x = x + 0.5;
+				cub3d->player.pos.y = y + 0.5;
+				return ;
+			}
+	}
+}
 
 void	init_mlx()
 {
 	t_cub3d	*cub3d;
 	
 	cub3d = get_cub3d();
-
 	cub3d->mlx = mlx_init();
 	cub3d->win = mlx_new_window(cub3d->mlx, WINDOW_WIDTH,
 										WINDOW_HEIGHT, "CUB3D!");
@@ -44,6 +67,7 @@ void	init_map()
 		exit_error("Calloc of map failed");
 	cub3d->config.map.height = 0;
 	cub3d->config.map.width = 0;
+	cub3d->config.minimap = true;
 	
 }
 
@@ -55,9 +79,12 @@ void	init(int argc, char **argv)
 		exit_error("cub3d has only 1 argument, a .cub config file!");
 	cub3d->config.file = argv[1];
 	init_map();
-	read_file();
+	init_file();
+	init_player();
+	
 	// DEBUG
-	print_info();
-	print_map();
+	// print_info();
+	// print_map();
+
 	init_mlx();
 }

@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:15:55 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 09:23:56 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 09:53:36 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	render(void)
 	draw_ceilling();
 	draw_floor();
 	//raycast();
-	//draw_minimap();
 	//draw_raycast();
+	draw_minimap();
 	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->img.img, 0, 0);
 }
