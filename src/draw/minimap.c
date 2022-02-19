@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 10:28:37 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 11:57:20 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	draw_minimap(void)
 				draw_minimap_square(y, x);
 	}
 	draw_player();
+	//draw_raypoints();
 }
