@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 12:01:03 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:41:36 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //	WINDOW
 # define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 800
+# define WINDOW_HEIGHT 801
 
 //	MINIMAP
 # define MINIMAP_RATIO 10
@@ -31,12 +31,12 @@
 # define C_BLUE 0x0000ff
 
 //	KEYS
-# define K_W 0x000000
-# define K_S 0x000000
-# define K_A 0x000000
-# define K_D 0x000000
-# define K_M 0xffffff
-# define K_ESC 0x000000
-# define K_SPACE 0x000000
+# define K_W 0
+# define K_S 0
+# define K_A 0
+# define K_D 0
+# define K_M 0
+# define K_ESC 0
+# define K_SPACE 0
 
 #endif

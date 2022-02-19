@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 10:32:29 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:38:34 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	init(int argc, char **argv)
 	init_map();
 	init_file();
 	init_player();
+	// validation();
 	
 	// DEBUG
 	// print_info();
