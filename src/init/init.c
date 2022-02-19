@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 21:14:26 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/19 09:29:45 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,4 @@ void	init(int argc, char **argv)
 	print_info();
 	print_map();
 	init_mlx();
-
-	for (int i = 0; i < WINDOW_WIDTH; i++)
-		for (int j = 0; j < WINDOW_HEIGHT; j++)
-			my_mlx_pixel_put(&cub3d->img, i, j, cub3d->config.ceilling);
-	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->img.img, 0, 0);
-	mlx_loop(cub3d->mlx);
 }
