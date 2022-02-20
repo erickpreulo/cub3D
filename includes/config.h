@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 13:41:36 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:33:25 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 //	COLORS
 # define C_BLACK 0x000000
 # define C_WHITE 0xffffff
-# define C_GRAY 0xcccccc
+# define C_GRAY 0x999999
 # define C_RED 0xff0000
 # define C_GREEN 0x00ff00
 # define C_BLUE 0x0000ff

@@ -6,11 +6,49 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:05:57 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 14:53:29 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:38:25 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	append_spaces(char **row)
+{
+	t_cub3d	*cub3d;
+	char	*new_str;
+	char	*temp;
+	int		i;
+
+	cub3d = get_cub3d();
+	temp = *row;
+	new_str = malloc((cub3d->config.map.width + 2) * sizeof(char));
+	if (!new_str)
+		exit_error("Malloc failed on append spaces");
+	i = -1;
+	while ((*row)[++i])
+		new_str[i] = (*row)[i];
+	while (i < cub3d->config.map.width)
+		new_str[i++] = ' ';
+	new_str[i] = '\0';
+	*row = new_str;
+	free(temp);
+}
+
+void	fix_map_rows(void)
+{
+	t_cub3d	*cub3d;
+	int 	i;
+	int		len;
+
+	cub3d = get_cub3d();
+	i = -1;
+	while (++i < cub3d->config.map.height)
+	{
+		len = ft_strlen(cub3d->config.map.map[i]);
+		if (len < cub3d->config.map.width)
+			append_spaces(&cub3d->config.map.map[i]);
+	}
+}
 
 void	push_char(char c, char *row)
 {

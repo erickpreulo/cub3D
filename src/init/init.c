@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 13:38:34 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:26:42 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	init(int argc, char **argv)
 	cub3d->config.file = argv[1];
 	init_map();
 	init_file();
+	fix_map_rows();
 	init_player();
 	// validation();
 	

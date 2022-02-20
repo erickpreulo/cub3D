@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 11:57:20 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:34:00 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ void	draw_minimap_square(int i, int j)
 	c = cub3d->config.map.map[i][j];
 	pos.x = MINIMAP_OFFSET + j * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + i * MINIMAP_RATIO;
-	if (c == '1')
-		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_BLACK);
-	else
+	if (c == ' ')
 		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_GRAY);
+	else if (c == '1')
+		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_BLACK);	
+	else
+		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_WHITE);
 	
 }
 
@@ -57,8 +59,7 @@ void	draw_minimap(void)
 	{
 		x = -1;
 		while (cub3d->config.map.map[y][++x])
-			if(cub3d->config.map.map[y][x] != ' ')
-				draw_minimap_square(y, x);
+			draw_minimap_square(y, x);
 	}
 	draw_player();
 	//draw_raypoints();
