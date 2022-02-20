@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 09:15:55 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 11:39:17 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/20 11:41:06 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	render(void)
+void	update_raycast(void)
 {
-	t_cub3d	*cub3d;
-
-	cub3d = get_cub3d();
-	draw_ceilling();
-	draw_floor();
-	//draw_raycast();
-	draw_minimap();
-	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->img.img, 0, 0);
+	
 }

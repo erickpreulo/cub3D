@@ -6,21 +6,35 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 00:26:42 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:58:03 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_player()
+void	init_struct(void)
+{
+	t_cub3d	*cub3d;
+	
+	cub3d = get_cub3d();
+	cub3d->player.pos.x = 0;
+	cub3d->player.pos.y = 0;
+	cub3d->player.pos.angle = 0;
+	cub3d->player.state.movingUp = false;
+	cub3d->player.state.movingDown = false;
+	cub3d->player.state.movingLeft = false;
+	cub3d->player.state.movingRight = false;
+	cub3d->player.state.rotatingLeft = false;
+	cub3d->player.state.rotatingRight = false;
+}
+
+void	init_player(void)
 {
 	t_cub3d	*cub3d;
 	int y;
 	int x;
 	
 	cub3d = get_cub3d();
-	cub3d->player.pos.x = 0;
-	cub3d->player.pos.y = 0;
 	y = -1;
 	while (++y < cub3d->config.map.height)
 	{
@@ -36,7 +50,7 @@ void	init_player()
 	}
 }
 
-void	init_mlx()
+void	init_mlx(void)
 {
 	t_cub3d	*cub3d;
 	
@@ -51,13 +65,16 @@ void	init_mlx()
 											&cub3d->img.line_length,
 											&cub3d->img.endian);
 
-	// mlx_hook(fractol->win.win, 2, 1L<<0, key_hook, fractol);
-	// mlx_mouse_hook(fractol->win.win, mouse_hook, fractol);
 	// mlx_hook(fractol->win.win, 6, 1L << 6, hook_mousemove, fractol);
+	//mlx_do_key_autorepeaton(cub3d->mlx);
+	mlx_hook(cub3d->win, 2, 1L << 0, key_pressed, cub3d);
+	mlx_hook(cub3d->win, 3, 1L << 1, key_released, cub3d);
 	mlx_hook(cub3d->win, 33, 1L << 17, exit_mlx, cub3d);
+	mlx_loop_hook(cub3d->mlx, loop_handler, cub3d);
+	mlx_loop(cub3d->mlx);
 }
 
-void	init_map()
+void	init_map(void)
 {
 	t_cub3d	*cub3d;
 	
@@ -78,6 +95,7 @@ void	init(int argc, char **argv)
 	if (argc != 2)
 		exit_error("cub3d has only 1 argument, a .cub config file!");
 	cub3d->config.file = argv[1];
+	init_struct();
 	init_map();
 	init_file();
 	fix_map_rows();
@@ -89,4 +107,5 @@ void	init(int argc, char **argv)
 	// print_map();
 
 	init_mlx();
+	
 }
