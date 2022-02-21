@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 19:55:18 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/21 23:25:42 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	draw_ray_points(void)
 	cub3d = get_cub3d();
 	pos.x = MINIMAP_OFFSET + cub3d->ray.pos.x * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + cub3d->ray.pos.y * MINIMAP_RATIO;
-	draw_square(pos, 2, 2, C_RED);
+	pos.x -= 1;
+	pos.y -= 1;
+	draw_square(pos, 3, 3, C_RED);
 }
 
 void	draw_aim(void)
@@ -89,5 +91,5 @@ void	draw_minimap(void)
 			draw_minimap_square(y, x);
 	}
 	draw_player();
-	draw_raypoints();
+	draw_ray_points();
 }
