@@ -6,7 +6,7 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:29:35 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 12:44:06 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/21 13:42:38 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 t_cub3d	*get_cub3d(void);
 void	init(int argc, char **argv);
 void	init_file();
-void	validation(void);
+void	validation_map(void);
 
 #endif

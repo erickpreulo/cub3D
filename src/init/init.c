@@ -6,7 +6,7 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 12:57:19 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/21 13:42:26 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	init(int argc, char **argv)
 	init_map();
 	init_file();
 	fix_map_rows();
-	validation();
+	validation_map();
 	//print_map();
 	init_player();
 	

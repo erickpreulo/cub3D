@@ -6,7 +6,7 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:36:43 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 13:32:48 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/21 13:42:31 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	validation_map_shape(t_cub3d *cub3d, int i, int j)
 	validation_map_possible_characters(cub3d, i, j);
 }
 
-void	validation(void)
+void	validation_map(void)
 {
 	t_cub3d	*cub3d;
 	int		i;
