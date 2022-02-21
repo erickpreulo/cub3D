@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 16:01:46 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:18:30 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define MINIMAP_OFFSET 20
 # define PLAYER_SIZE 5
 
-# define PLAYER_STEP 0.01
+# define PLAYER_STEP 0.03
 
 //	COLORS
 # define C_BLACK 0x000000
@@ -49,18 +49,18 @@
 
 #else // MAC
 
-# define K_W 119
-# define K_S 115
-# define K_A 97
-# define K_D 100
+# define K_W 13
+# define K_S 1
+# define K_A 0
+# define K_D 2
 
-# define K_LEFT 65361
-# define K_RIGHT 65363
+# define K_LEFT 123
+# define K_RIGHT 124
 
-# define K_M 109
-# define K_ESC 65307
-# define K_PLUS 65451
-# define K_MINUS 65453
+# define K_M 49
+# define K_ESC 53
+# define K_PLUS 33
+# define K_MINUS 44
 
 #endif
 
