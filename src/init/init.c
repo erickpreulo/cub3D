@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 11:58:03 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:57:19 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,12 @@ void	init(int argc, char **argv)
 	init_map();
 	init_file();
 	fix_map_rows();
+	validation();
+	//print_map();
 	init_player();
-	// validation();
 	
 	// DEBUG
 	// print_info();
-	// print_map();
 
 	init_mlx();
 	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   _init.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:29:35 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 10:26:14 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:44:06 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 t_cub3d	*get_cub3d(void);
 void	init(int argc, char **argv);
 void	init_file();
+void	validation(void);
 
 #endif

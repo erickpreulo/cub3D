@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:30:35 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 20:21:09 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 11:52:27 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	print_map()
 	printf("> Map Width: %d\n", cub3d->config.map.width);
 	int i = -1;
 	while (cub3d->config.map.map[++i])
-		printf("%s\n", cub3d->config.map.map[i]);
+		printf("[%d]	%s\n", i, cub3d->config.map.map[i]);
 	printf("=== END MAP ===\n");
 }
