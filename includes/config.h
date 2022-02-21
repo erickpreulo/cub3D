@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 16:18:30 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:30:24 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # define MINIMAP_OFFSET 20
 # define PLAYER_SIZE 5
 
-# define PLAYER_STEP 0.03
-
 //	COLORS
 # define C_BLACK 0x000000
 # define C_WHITE 0xffffff
@@ -32,7 +30,10 @@
 # define C_GREEN 0x00ff00
 # define C_BLUE 0x0000ff
 
-#ifdef __linux__ 
+#ifdef __linux__ // LINUX
+
+# define PLAYER_STEP 0.01
+
 //	KEYS
 # define K_W 119
 # define K_S 115
@@ -49,6 +50,9 @@
 
 #else // MAC
 
+# define PLAYER_STEP 0.03
+
+//	KEYS
 # define K_W 13
 # define K_S 1
 # define K_A 0
