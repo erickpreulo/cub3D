@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 15:17:46 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:27:45 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,19 @@ void	init_map(void)
 
 void	init_game(int argc, char **argv)
 {
-	t_cub3d	*cub3d = get_cub3d();
+	t_cub3d	*cub3d;
 
 	if (argc != 2)
-		exit_error("cub3d has only 1 argument, a .cub config file!");
+	{
+		ft_putendl_fd("Error", STDERR_FILENO);
+		ft_putendl_fd("cub3d has only 1 argument, a .cub config file!", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
+	cub3d = get_cub3d();
 	cub3d->config.file = argv[1];
 	init_map();
 	init_file();
 	fix_map_rows();
 	validation_map();
-	init_player();	
+	init_player();
 }
