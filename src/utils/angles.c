@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _utils.h                                           :+:      :+:    :+:   */
+/*   angles.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 08:40:32 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 23:43:49 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/21 23:40:19 by aneuwald          #+#    #+#             */
+/*   Updated: 2022/02/21 23:43:15 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _UTILS_H
-# define _UTILS_H
+#include "cub3d.h"
 
-void	exit_error(char *msg);
-void	safe_exit();
-void	free_split(char **data);
-int		create_color(int r, int g, int b);
-t_color	get_color(int c);
-int		exit_mlx(t_cub3d *cub3d);
-double	correct_angle(double angle);
-
-#endif
+double	correct_angle(double angle)
+{
+	if (angle >= 2 * PI)
+		angle -= 2 * PI;
+	if (angle < 0)
+		angle += 2 * PI;
+	return (angle);
+}
