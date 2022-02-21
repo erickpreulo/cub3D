@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:35:03 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/18 20:51:27 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:02:53 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,22 @@ void	set_texture(t_type_texture index, char *line)
 
 void	parse_settings(char *line)
 {
-	if (ft_strcmp(line, "\0") == 0)
+	static bool in_map = false;
+	
+	if (!ft_strcmp(line, "\0") && in_map)
+		return(exit_error("Map cut"));
+	if (!ft_strcmp(line, "\0"))
 		return ;
-	if (ft_strncmp(line, "NO ", 3) == 0)
+	if (!ft_strncmp(line, "NO ", 3))
 		return(set_texture(NO, line));
-	if (ft_strncmp(line, "SO ", 3) == 0)
+	if (!ft_strncmp(line, "SO ", 3))
 		return(set_texture(SO, line));
-	if (ft_strncmp(line, "WE ", 3) == 0)
+	if (!ft_strncmp(line, "WE ", 3))
 		return(set_texture(WE, line));
-	if (ft_strncmp(line, "EA ", 3) == 0)
+	if (!ft_strncmp(line, "EA ", 3))
 		return(set_texture(EA, line));
-	if (ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0)
+	if (!ft_strncmp(line, "F ", 2) || !ft_strncmp(line, "C ", 2))
 		return(set_background(line, line[0]));
+	in_map = true;
 	push_to_map(line);
 }

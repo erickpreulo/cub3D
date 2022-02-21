@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 14:46:08 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:17:46 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_mlx(void)
 											&cub3d->img.endian);
 
 	// mlx_hook(fractol->win.win, 6, 1L << 6, hook_mousemove, fractol);
-	//mlx_do_key_autorepeaton(cub3d->mlx);
+	// mlx_do_key_autorepeaton(cub3d->mlx);
 	mlx_hook(cub3d->win, 2, 1L << 0, key_pressed, cub3d);
 	mlx_hook(cub3d->win, 3, 1L << 1, key_released, cub3d);
 	mlx_hook(cub3d->win, 33, 1L << 17, exit_mlx, cub3d);

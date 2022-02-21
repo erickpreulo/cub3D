@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 14:44:34 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:52:21 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	draw_minimap(void)
 	while (++y < cub3d->config.map.height)
 	{
 		x = -1;
-		while (cub3d->config.map.map[y][++x])
+		while (++x < cub3d->config.map.width)
 			draw_minimap_square(y, x);
 	}
 	draw_player();

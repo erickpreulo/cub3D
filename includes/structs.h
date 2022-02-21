@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 09:42:59 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:55:49 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,13 @@ typedef struct	s_image {
 	int			endian;
 }				t_image;
 
+typedef struct	s_ray
+{
+	double		dist;
+	t_position	pos;
+}				t_ray;
+
+
 typedef struct	s_cub3d
 {
 	void		*win;
@@ -84,6 +91,7 @@ typedef struct	s_cub3d
 	t_image		img;
 	t_config	config;	
 	t_player	player;
+	t_ray		ray;
 }				t_cub3d;
 
 

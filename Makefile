@@ -6,7 +6,7 @@
 #    By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 19:18:55 by acanterg          #+#    #+#              #
-#    Updated: 2022/02/21 14:39:26 by aneuwald         ###   ########.fr        #
+#    Updated: 2022/02/21 15:54:55 by aneuwald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,18 @@ LIBS	=	-L./$(LIBFT) -lft
 MLX_MAC	=	-I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
 MLX_42	=	-L mlx -lmlx -framework OpenGL -framework AppKit -O3
 MLX_LNX	=	-L minilibx-linux -lmlx -lm -lX11 -lXext -O3
+C_FLAGS =	""
 
-test	:	re
+OS_NAME =	$(shell uname -s)
+
+ifeq ($(OS_NAME),Linux)
+	C_FLAGS += MLX_LNX
+endif
+ifeq ($(UNAME_S),Darwin)
+	CCFLAGS += MLX_MAC
+endif
+
+test	: 	re
 			./$(NAME) config.cub
 
 all : 		$(NAME)

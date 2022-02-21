@@ -6,11 +6,21 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 11:52:09 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:34:55 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	smart_position(double perc_x, double perc_y)
+{
+	t_player	*player;
+
+	player = &get_cub3d()->player;
+
+	player->pos.x += perc_x * PLAYER_STEP;
+	player->pos.y += perc_y * PLAYER_STEP;
+}
 
 void	update_player(void)
 {
@@ -18,11 +28,16 @@ void	update_player(void)
 
 	player = &get_cub3d()->player;
 	if (player->state.movingUp)
-		player->pos.y -= PLAYER_STEP;
+		smart_position(cos(player->pos.angle), -sin(player->pos.angle));
 	if (player->state.movingDown)
-		player->pos.y += PLAYER_STEP;
+		smart_position(-cos(player->pos.angle), sin(player->pos.angle));
 	if (player->state.movingLeft)
-		player->pos.x -= PLAYER_STEP;
+		smart_position(-sin(player->pos.angle), -cos(player->pos.angle));
 	if (player->state.movingRight)
-		player->pos.x += PLAYER_STEP;
+		smart_position(sin(player->pos.angle), cos(player->pos.angle));
+	if (player->state.rotatingLeft)
+		player->pos.angle += PLAYER_STEP;
+	if (player->state.rotatingRight)
+		player->pos.angle -= PLAYER_STEP;
+
 }

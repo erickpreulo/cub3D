@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 14:41:06 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:15:38 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@
 # define K_S 115
 # define K_A 97
 # define K_D 100
+
+# define K_LEFT 65361
+# define K_RIGHT 65363
 
 # define K_M 109
 # define K_ESC 65307
