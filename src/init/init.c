@@ -3,52 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 13:42:26 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/21 14:46:08 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	init_struct(void)
-{
-	t_cub3d	*cub3d;
-	
-	cub3d = get_cub3d();
-	cub3d->player.pos.x = 0;
-	cub3d->player.pos.y = 0;
-	cub3d->player.pos.angle = 0;
-	cub3d->player.state.movingUp = false;
-	cub3d->player.state.movingDown = false;
-	cub3d->player.state.movingLeft = false;
-	cub3d->player.state.movingRight = false;
-	cub3d->player.state.rotatingLeft = false;
-	cub3d->player.state.rotatingRight = false;
-}
-
-void	init_player(void)
-{
-	t_cub3d	*cub3d;
-	int y;
-	int x;
-	
-	cub3d = get_cub3d();
-	y = -1;
-	while (++y < cub3d->config.map.height)
-	{
-		x = -1;
-		while (cub3d->config.map.map[y][++x])
-			if(cub3d->config.map.map[y][x] == 'N')
-			{
-				cub3d->config.map.map[y][x] = '0';
-				cub3d->player.pos.x = x + 0.5;
-				cub3d->player.pos.y = y + 0.5;
-				return ;
-			}
-	}
-}
 
 void	init_mlx(void)
 {
@@ -88,24 +50,16 @@ void	init_map(void)
 	
 }
 
-void	init(int argc, char **argv)
+void	init_game(int argc, char **argv)
 {
 	t_cub3d	*cub3d = get_cub3d();
 
 	if (argc != 2)
 		exit_error("cub3d has only 1 argument, a .cub config file!");
 	cub3d->config.file = argv[1];
-	init_struct();
 	init_map();
 	init_file();
 	fix_map_rows();
 	validation_map();
-	//print_map();
-	init_player();
-	
-	// DEBUG
-	// print_info();
-
-	init_mlx();
-	
+	init_player();	
 }

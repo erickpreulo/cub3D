@@ -6,13 +6,28 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 00:34:00 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:44:34 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_player()
+void	draw_aim(void)
+{
+	t_cub3d		*cub3d;
+	t_position	pos;
+
+	cub3d = get_cub3d();
+	pos.x = cub3d->player.pos.x + cos(cub3d->player.pos.angle);
+	pos.y = cub3d->player.pos.y - sin(cub3d->player.pos.angle);
+	pos.x = MINIMAP_OFFSET + pos.x * MINIMAP_RATIO;
+	pos.y = MINIMAP_OFFSET + pos.y * MINIMAP_RATIO;
+	pos.x--;
+	pos.y--;
+	draw_square(pos, 3, 3, C_RED);
+}
+
+void	draw_player(void)
 {
 	t_cub3d		*cub3d;
 	t_position	pos;
@@ -23,6 +38,7 @@ void	draw_player()
 	pos.x -= 2;
 	pos.y -= 2;
 	draw_square(pos, PLAYER_SIZE, PLAYER_SIZE, C_RED);
+	draw_aim();
 }
 
 void	draw_minimap_square(int i, int j)

@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 11:51:11 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:41:06 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@
 # define K_ESC 65307
 # define K_PLUS 65451
 # define K_MINUS 65453
+
+//	MATH
+# define M_PI 3.14159265358979323846
 
 #endif
