@@ -6,7 +6,7 @@
 #    By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 19:18:55 by acanterg          #+#    #+#              #
-#    Updated: 2022/02/21 16:05:05 by aneuwald         ###   ########.fr        #
+#    Updated: 2022/02/21 16:06:05 by aneuwald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OS_NAME =	$(shell uname -s)
 ifeq ($(OS_NAME),Linux)
 	MLX_F = $(MLX_LNX)
 endif
-ifeq ($(UNAME_S),Darwin)
+ifeq ($(OS_NAME),Darwin)
 	MLX_F = $(MLX_MAC)
 endif
 
