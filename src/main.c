@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:12:02 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 14:56:42 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 19:45:49 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	init_game(argc, argv);
 	//	DEBUG
 	// print_info();
-	print_map();
+	//print_map();
 	print_player();
 	init_mlx();
 	safe_exit();

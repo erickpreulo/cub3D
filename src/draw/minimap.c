@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 14:52:21 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 19:55:18 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	draw_ray_points(void)
+{
+	t_cub3d		*cub3d;
+	t_position	pos;
+
+	cub3d = get_cub3d();
+	pos.x = MINIMAP_OFFSET + cub3d->ray.pos.x * MINIMAP_RATIO;
+	pos.y = MINIMAP_OFFSET + cub3d->ray.pos.y * MINIMAP_RATIO;
+	draw_square(pos, 2, 2, C_RED);
+}
 
 void	draw_aim(void)
 {
@@ -78,5 +89,5 @@ void	draw_minimap(void)
 			draw_minimap_square(y, x);
 	}
 	draw_player();
-	//draw_raypoints();
+	draw_raypoints();
 }

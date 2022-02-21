@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+         #
+#    By: egomes <egomes@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 19:18:55 by acanterg          #+#    #+#              #
-#    Updated: 2022/02/21 16:06:05 by aneuwald         ###   ########.fr        #
+#    Updated: 2022/02/21 19:50:29 by egomes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ test	: 	re
 
 all : 		$(NAME)
 
-$(NAME) :	lib
+$(NAME) :	#lib
 			echo -n ">>> cub3d... "
 			$(GCC) $(CFLAGS) $(FSANIT) -o $(NAME) $(SRC) $(INCLUD) $(MLX_F) $(LIBS)
 			rm -rf *.dSYM
@@ -52,12 +52,12 @@ lib		:
 
 clean :
 			rm -rf $(NAME)
-			make clean -C $(LIBFT)
+			#make clean -C $(LIBFT)
 
 bonus :		all
 
 fclean :	clean
-			make fclean -C $(LIBFT)
+			#make fclean -C $(LIBFT)
 
 re :		fclean all
 

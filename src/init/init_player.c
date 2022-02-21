@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:06:28 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 15:59:00 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/21 19:45:36 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	set_player_position(int x, int y, char c)
 	if (c == 'E')
 		cub3d->player.pos.angle = 0;
 	if (c == 'N')
-		cub3d->player.pos.angle = PI / 2;
+		cub3d->player.pos.angle = (PI / 2);
 	if (c == 'W')
 		cub3d->player.pos.angle = PI;
 	if (c == 'S')
