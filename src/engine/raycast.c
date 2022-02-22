@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 12:03:35 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 19:10:51 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	find_obstacle(t_cub3d *cub3d, t_position *ray, t_position *incr)
+{
+	while (1)
+	{
+		if (ray->y - 1 < 0 || ray->y - 1 >= cub3d->config.map.height - 1)
+			break;
+		if (ray->x < 0 || ray->x >= cub3d->config.map.width - 1)
+			break;
+		if (cub3d->config.map.map[(int)ray->y][(int)ray->x] == '1')
+			break;
+		ray->x += incr->x;
+		ray->y += incr->y;
+	}
+}
 
 t_position get_ray_horizontal(t_cub3d *cub3d)
 {
@@ -36,32 +51,36 @@ t_position get_ray_horizontal(t_cub3d *cub3d)
 		incr.y = -1;
 		incr.x = incr.y * a_tan;
 	}
-	while (1)
-	{
-		if (ray.y - 1 < 0 || ray.y - 1 >= cub3d->config.map.height - 1)
-			break;
-		if (ray.x < 0 || ray.x >= cub3d->config.map.width - 1)
-			break;
-		if (cub3d->config.map.map[(int)ray.y][(int)ray.x] == '1')
-			break;
-		ray.x += incr.x;
-		ray.y += incr.y;
-	}
+	find_obstacle(cub3d, &ray, &incr);
 	return (ray);
 }
 
 t_position get_ray_vertical(t_cub3d *cub3d)
 {
-	t_position	pos;
-	double		b;
+	t_position	ray;
+	t_position	incr;
+	double		a_tan;
 
-	if (cub3d->player.pos.angle > PI / 2 && cub3d->player.pos.angle < 3 * PI / 2)
-		pos.x = floor(cub3d->player.pos.x);
-	else
-		pos.x = ceill(cub3d->player.pos.x);
-	b = tan(cub3d->player.pos.angle) * (cub3d->player.pos.x - pos.x);
-	pos.y = cub3d->player.pos.y + b;
-	return (pos);
+	ray.angle = cub3d->player.pos.angle;
+	a_tan = -tan(ray.angle);
+	if (ray.angle == PI / 2 || ray.angle == PI + (PI / 2))
+		return (limit_position());
+	if (ray.angle < PI / 2 || ray.angle > 3 * PI / 2) // LOOKING RIGHT
+	{
+		ray.x = floor(cub3d->player.pos.x);
+		ray.y = (cub3d->player.pos.x - ray.x) * a_tan + cub3d->player.pos.y;
+		incr.x = 1;
+		incr.y = incr.x * a_tan;
+	}
+	else // LOOKING LEFT
+	{
+		ray.x = floor(cub3d->player.pos.x) + 1 - 0.0001;
+		ray.y = (cub3d->player.pos.x - ray.x) * a_tan + cub3d->player.pos.y;
+		incr.x = -1;
+		incr.y = incr.x * a_tan;
+	}
+	find_obstacle(cub3d, &ray, &incr);
+	return (ray);
 }
 
 void	update_raycast(void)

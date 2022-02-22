@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 23:54:33 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:35:29 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 
 #else // MAC
 
-# define PLAYER_STEP 0.03
+# define PLAYER_STEP 0.05
 
 //	KEYS
 # define K_W 13
