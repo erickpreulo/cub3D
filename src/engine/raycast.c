@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 11:41:29 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:03:35 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_position get_ray_horizontal(t_cub3d *cub3d)
 	t_position	incr;
 	double		a_tan;
 
-	ray = new_position();
-	incr = new_position();
 	ray.angle = cub3d->player.pos.angle;
 	a_tan = -1/tan(ray.angle);
 	if (ray.angle == 0 || ray.angle == PI)
@@ -31,7 +29,7 @@ t_position get_ray_horizontal(t_cub3d *cub3d)
 		incr.y = 1;
 		incr.x = incr.y * a_tan;
 	}
-	else if (ray.angle < PI) // LOOKING UP
+	else // LOOKING UP
 	{
 		ray.y = floor(cub3d->player.pos.y) + 1 - 0.0001;
 		ray.x = (cub3d->player.pos.y - ray.y) * a_tan + cub3d->player.pos.x;
