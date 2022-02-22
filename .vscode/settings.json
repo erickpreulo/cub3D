@@ -2,6 +2,8 @@
 	"files.associations": {
 		"_utils.h": "c",
 		"cub3d.h": "c",
-		"_parser.h": "c"
+		"_parser.h": "c",
+		"cmath": "c",
+		"float.h": "c"
 	}
 }

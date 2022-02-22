@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 09:47:44 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 11:18:00 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 19:36:54 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ double		calc_dist(t_position pos1, t_position pos2)
 {
 	double	dist;
 
-	dist = (pos1.x - pos2.x) * (pos1.x - pos2.x);
-	dist += (pos1.y - pos2.y) * (pos1.y - pos2.y);
+	dist = (pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y);
 	return (sqrt(dist));
 }
