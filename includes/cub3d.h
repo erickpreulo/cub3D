@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:12:40 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 00:42:17 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 09:34:07 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+# include <float.h>
 # include <stdbool.h>
 
 # include "../libft/libft.h"

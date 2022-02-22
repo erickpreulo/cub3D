@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 23:43:32 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:18:21 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	update_player(void)
 		player->pos.angle += PLAYER_STEP;
 	if (player->state.rotatingRight)
 		player->pos.angle -= PLAYER_STEP;
-	player->pos.angle = correct_angle(player->pos.angle);
+	//player->pos = correct_angle(player->pos.angle);
+	player->pos = fix_boundaries(player->pos);
 }

@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 23:54:28 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:23:46 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	draw_aim(void)
 	t_position	pos;
 
 	cub3d = get_cub3d();
-	pos.x = cub3d->player.pos.x + cos(cub3d->player.pos.angle);
-	pos.y = cub3d->player.pos.y - sin(cub3d->player.pos.angle);
+	pos.x = cub3d->player.pos.x + 0.5 * cos(cub3d->player.pos.angle);
+	pos.y = cub3d->player.pos.y - 0.5 * sin(cub3d->player.pos.angle);
 	pos.x = MINIMAP_OFFSET + pos.x * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + pos.y * MINIMAP_RATIO;
 	pos.x--;

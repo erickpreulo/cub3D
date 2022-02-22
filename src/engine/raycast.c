@@ -6,37 +6,54 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 23:53:51 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:20:46 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	calc_dist(t_position pos1, t_position pos2)
+t_position get_ray_horizontal(t_cub3d *cub3d)
 {
-	double	dist;
+	t_position	ray;
+	t_position	incr;
+	double		a_tan;
 
-	dist = (pos1.x - pos2.x) * (pos1.x - pos2.x);
-	dist += (pos1.y - pos2.y) * (pos1.y - pos2.y);
-
-	return (sqrt(dist));
+	ray = new_position();
+	incr = new_position();
+	ray.angle = cub3d->player.pos.angle;
+	a_tan = -1/tan(ray.angle);
+	if (ray.angle == 0 || ray.angle == PI)
+		return (limit_position());
+	if (ray.angle > PI) // LOOKING DOWN
+	{
+		ray.y = floor(cub3d->player.pos.y);
+		ray.x = (cub3d->player.pos.y - ray.y) * a_tan + cub3d->player.pos.x;
+		incr.y = 1;
+		incr.x = incr.y * a_tan;
+	}
+	else if (ray.angle < PI) // LOOKING UP
+	{
+		ray.y = floor(cub3d->player.pos.y) + 1 - 0.0001;
+		ray.x = (cub3d->player.pos.y - ray.y) * a_tan + cub3d->player.pos.x;
+		incr.y = -1;
+		incr.x = incr.y * a_tan;
+	}
+	while (1)
+	{
+		printf("ray.y: %f, ray.x: %f\n", ray.y, ray.x);
+		if (ray.y - 1 < 0 || ray.y - 1 >= cub3d->config.map.height - 1)
+			break;
+		if (ray.x < 0 || ray.x >= cub3d->config.map.width - 1)
+			break;
+		if (cub3d->config.map.map[(int)ray.y][(int)ray.x] == '1')
+			break;
+		ray.x += incr.x;
+		ray.y += incr.y;
+	}
+	return (ray);
 }
 
 t_position get_ray_vertical(t_cub3d *cub3d)
-{
-	t_position	pos;
-	double		b;
-
-	if (cub3d->player.pos.angle > 0 && cub3d -> player.pos.angle < PI)
-		pos.y =  floor(cub3d->player.pos.y);
-	else
-		pos.y = ceill(cub3d->player.pos.y);
-	b = 1/tan(cub3d->player.pos.angle) * (cub3d->player.pos.y - pos.y);
-	pos.x = cub3d->player.pos.x + b;
-	return (pos);
-}
-
-t_position get_ray_horizontal(t_cub3d *cub3d)
 {
 	t_position	pos;
 	double		b;
