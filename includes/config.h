@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 19:12:57 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 21:05:32 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define CONFIG_H
 
 //	WINDOW
-# define WINDOW_WIDTH 1300
+# define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 800
 
 //	MINIMAP
-# define MINIMAP_RATIO 30
+# define MINIMAP_RATIO 20
 # define MINIMAP_OFFSET 20
 # define PLAYER_SIZE 5
 

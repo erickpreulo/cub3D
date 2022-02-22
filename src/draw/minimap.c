@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 20:00:34 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 21:05:41 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	draw_ray_points(void)
 	cub3d = get_cub3d();
 	pos.x = MINIMAP_OFFSET + cub3d->ray.pos.x * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + cub3d->ray.pos.y * MINIMAP_RATIO;
-	pos.x -= 4;
-	pos.y -= 4;
-	draw_square(pos, 7, 7, 0xcc0000);
+	pos.x -= 2;
+	pos.y -= 2;
+	draw_square(pos, 5, 5, C_BLUE);
 }
 
 void	draw_aim(void)
@@ -35,8 +35,8 @@ void	draw_aim(void)
 	pos.y = cub3d->player.pos.y - 0.5 * sin(cub3d->player.pos.angle);
 	pos.x = MINIMAP_OFFSET + pos.x * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + pos.y * MINIMAP_RATIO;
-	pos.x--;
-	pos.y--;
+	pos.x -= 1;
+	pos.y -= 1;
 	draw_square(pos, 3, 3, C_RED);
 }
 
@@ -48,8 +48,8 @@ void	draw_player(void)
 	cub3d = get_cub3d();
 	pos.x = MINIMAP_OFFSET + cub3d->player.pos.x * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + cub3d->player.pos.y * MINIMAP_RATIO;
-	pos.x -= 2;
-	pos.y -= 2;
+	pos.x -= PLAYER_SIZE / 2;
+	pos.y -= PLAYER_SIZE / 2;
 	draw_square(pos, PLAYER_SIZE, PLAYER_SIZE, C_RED);
 	draw_aim();
 }
@@ -64,12 +64,12 @@ void	draw_minimap_square(int i, int j)
 	c = cub3d->config.map.map[i][j];
 	pos.x = MINIMAP_OFFSET + j * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + i * MINIMAP_RATIO;
-	if (c == ' ')
-		draw_square(pos, MINIMAP_RATIO-1, MINIMAP_RATIO-1, C_GRAY);
-	else if (c == '1')
-		draw_square(pos, MINIMAP_RATIO-1, MINIMAP_RATIO-1, C_BLACK);	
+	// if (c == ' ')
+	// 	draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_GRAY);
+	if (c == '1')
+		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_BLACK);	
 	else
-		draw_square(pos, MINIMAP_RATIO-1, MINIMAP_RATIO-1, C_WHITE);
+		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_WHITE);
 	
 }
 
@@ -88,9 +88,9 @@ void	draw_minimap(void)
 	{
 		x = -1;
 		while (++x < cub3d->config.map.width)
-			draw_minimap_square(y, x);
+			if (cub3d->config.map.map[y][x] != ' ')
+				draw_minimap_square(y, x);
 	}
 	draw_player();
-	update_raycast(); //TEMPORARY
 	draw_ray_points();
 }
