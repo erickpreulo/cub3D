@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 20:00:07 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:07:45 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_position get_ray_horizontal(t_cub3d *cub3d)
 	}
 	else // LOOKING UP
 	{
-		ray.y = floor(cub3d->player.pos.y) - 1 - 0.001;
+		ray.y = floor(cub3d->player.pos.y) - 0.0001;
 		ray.x = (cub3d->player.pos.y - ray.y) * -a_tan + cub3d->player.pos.x;
 		incr.y = -1;
 	}
@@ -77,7 +77,7 @@ t_position get_ray_vertical(t_cub3d *cub3d)
 	}
 	else // LOOKING LEFT
 	{
-		ray.x = floor(cub3d->player.pos.x) - 0.001;
+		ray.x = floor(cub3d->player.pos.x) - 0.0001;
 		ray.y = (cub3d->player.pos.x - ray.x) * -n_tan + cub3d->player.pos.y;
 		incr.x = -1;
 	}
