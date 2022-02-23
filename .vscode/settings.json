@@ -4,6 +4,7 @@
 		"cub3d.h": "c",
 		"_parser.h": "c",
 		"cmath": "c",
-		"float.h": "c"
+		"float.h": "c",
+		"limits": "c"
 	}
 }

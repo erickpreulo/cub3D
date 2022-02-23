@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 00:20:09 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/23 11:10:06 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ t_position get_ray_horizontal(t_cub3d *cub3d, double angle)
 		return (limit_position());
 	ray.y = ceil(cub3d->player.pos.y);
 	incr.y = 1;
-	ray.texture = SO;
+	ray.direction = SO;
 	if (ray.angle < PI)
 	{
-		ray.y = floor(cub3d->player.pos.y) - 0.0001;
+		ray.y = floor(cub3d->player.pos.y) - 0.000001;
 		incr.y = -1;
-		ray.texture = NO;
+		ray.direction = NO;
 	}
 	ray.x = (cub3d->player.pos.y - ray.y) * -a_tan + cub3d->player.pos.x;
 	incr.x = incr.y * a_tan;
@@ -65,12 +65,12 @@ t_position get_ray_vertical(t_cub3d *cub3d, double angle)
 		return (limit_position());
 	ray.x = ceil(cub3d->player.pos.x);
 	incr.x = 1;
-	ray.texture = EA;
+	ray.direction = EA;
 	if (ray.angle > PI / 2 && ray.angle < PI + (PI / 2))
 	{
-		ray.x = floor(cub3d->player.pos.x) - 0.0001;
+		ray.x = floor(cub3d->player.pos.x) - 0.000001;
 		incr.x = -1;
-		ray.texture = WE;
+		ray.direction = WE;
 	}
 	ray.y = (cub3d->player.pos.x - ray.x) * -n_tan + cub3d->player.pos.y;
 	incr.y = incr.x * n_tan;
@@ -80,12 +80,10 @@ t_position get_ray_vertical(t_cub3d *cub3d, double angle)
 
 double	get_piece_of_angle(int i, t_cub3d *cub3d)
 {
-	double	dr; 
 	double	angle;
 
-	dr = cub3d->config.fov / WINDOW_WIDTH;
-	angle = cub3d->player.pos.angle + cub3d->config.fov / 2;
-	angle -= dr * (double)i;
+	angle = cub3d->player.pos.angle + PLAYER_FOV / 2;
+	angle -= DR * (double)i;
 	return (correct_angle(angle));
 }
 

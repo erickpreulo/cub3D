@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 00:37:26 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/23 10:50:55 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //	WINDOW
 # define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 800
+# define WINDOW_HEIGHT 700
 
 //	MINIMAP
 # define MINIMAP_RATIO 10
@@ -45,8 +45,6 @@
 
 # define K_M 109
 # define K_ESC 65307
-# define K_PLUS 65451
-# define K_MINUS 65453
 
 #else // MAC
 
@@ -63,13 +61,12 @@
 
 # define K_M 49
 # define K_ESC 53
-# define K_PLUS 33
-# define K_MINUS 44
 
 #endif
 
 //	MATH
 # define PI 3.14159265358979323846
-# define DR 0.0174533
+# define PLAYER_FOV (PI / 3)
+# define DR (PLAYER_FOV / WINDOW_WIDTH)
 
 #endif

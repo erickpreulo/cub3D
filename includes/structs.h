@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 00:17:13 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/23 10:58:41 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef enum	s_texture
+typedef enum	s_direction
 {
 	NO,
 	SO,
 	WE,
 	EA
-}				t_texture;
+}				t_direction;
 
 typedef struct	s_color
 {
@@ -43,7 +43,7 @@ typedef struct	s_position
 	double		x;
 	double		y;
 	double		angle;
-	t_texture	texture;
+	t_direction	direction;
 }				t_position;
 
 typedef struct	s_player
@@ -59,17 +59,6 @@ typedef struct	s_map
 	int			height;
 }				t_map;
 
-typedef struct	s_config
-{
-	double		fov;
-	char		*textures[4];
-	int			floor;
-	int			ceilling;
-	t_map		map;
-	char		*file;
-	bool		minimap;
-}				t_config;
-
 typedef struct	s_image {
 	void		*img;
 	char		*addr;
@@ -77,6 +66,24 @@ typedef struct	s_image {
 	int			line_length;
 	int			endian;
 }				t_image;
+
+typedef struct	s_texture {
+	t_image		img;
+	char		*path;
+	int			width;
+	int			height;
+}				t_texture;
+
+typedef struct	s_config
+{
+	t_texture	textures[4];
+	t_texture	logo;
+	int			floor;
+	int			ceilling;
+	t_map		map;
+	char		*file;
+	bool		minimap;
+}				t_config;
 
 typedef struct	s_ray
 {

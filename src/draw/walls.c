@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 23:40:26 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 00:35:53 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/23 11:17:07 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ void	draw_line_wall(int i, double dist, t_cub3d *cub3d)
 	j = (WINDOW_HEIGHT / 2) - size;
 	while (++j < (WINDOW_HEIGHT / 2) + size)
 	{
-		if (j < 0 || j >= WINDOW_HEIGHT - 1)
+		if (j < 0 || j > WINDOW_HEIGHT - 1)
 			continue;
-		if (cub3d->ray[i].pos.texture == NO)
+		if (cub3d->ray[i].pos.direction == NO)
 			my_mlx_pixel_put(&cub3d->img, i, j, C_BLUE);
-		if (cub3d->ray[i].pos.texture == SO)
+		if (cub3d->ray[i].pos.direction == SO)
 			my_mlx_pixel_put(&cub3d->img, i, j, C_GREEN);
-		if (cub3d->ray[i].pos.texture == EA)
+		if (cub3d->ray[i].pos.direction == EA)
 			my_mlx_pixel_put(&cub3d->img, i, j, C_RED);
-		if (cub3d->ray[i].pos.texture == WE)
+		if (cub3d->ray[i].pos.direction == WE)
 			my_mlx_pixel_put(&cub3d->img, i, j, C_BLACK);
 	}
 }

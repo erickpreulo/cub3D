@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:06:28 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 23:29:59 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/23 10:47:31 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,5 @@ void	init_player(void)
 	cub3d->player.state.movingRight = false;
 	cub3d->player.state.rotatingLeft = false;
 	cub3d->player.state.rotatingRight = false;
-	cub3d->config.fov = PI / 3;
 	get_position_on_map();
 }

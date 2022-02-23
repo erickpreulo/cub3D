@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   settings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:35:03 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 00:09:29 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/23 10:44:21 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,41 @@ void	set_background(char *line, char c)
 	free_split(colors);
 }
 
-void	set_texture(t_texture index, char *line)
+void	set_texture(t_direction dir, char *line)
 {
-	const int	len = ft_strlen(line);
-	t_cub3d		*cub3d;
-	char		*texture;
-	int 		i;
+	t_cub3d	*cub3d;
+	char	*texture_path;
+	char	*ext;
 
 	cub3d = get_cub3d();
-	i = 2;
-	while (i == ' ')
-	{
-		i++;
-		if (i == len - 1)
-			exit_error("Texture with invalid format");
-	}
-	texture = ft_substr(line, i, len - i);
-	if (!texture)
-		exit_error("Malloc of texture failed");
-	cub3d->config.textures[index] = texture;
+	ext = ft_strrchr(line, '.');
+	if (!ext || ft_strcmp(ext, ".xpm"))
+		exit_error("Texture must have .xpm extension");
+	texture_path = ft_strdup(ft_strchr(line, '.'));
+	if (!texture_path)
+		exit_error("Error on malloc texture_path");
+	if (cub3d->config.textures[dir].path)
+		exit_error("Duplicated texture key");
+	cub3d->config.textures[dir].path = texture_path;
+}
 
+void	check_all_settings()
+{
+	t_cub3d	*cub3d;
+
+	cub3d = get_cub3d();
+	if (!cub3d->config.textures[NO].path)
+		exit_error("Where is the NO texture?");
+	if (!cub3d->config.textures[SO].path)
+		exit_error("Where is the SO texture?");
+	if (!cub3d->config.textures[WE].path)
+		exit_error("Where is the WE texture?");
+	if (!cub3d->config.textures[EA].path)
+		exit_error("Where is the EA texture?");
+	if (cub3d->config.floor == -1)
+		exit_error("Floor must have a color");
+	if (cub3d->config.ceilling == -1)
+		exit_error("Ceilling must have a color");
 }
 
 void	parse_settings(char *line)
@@ -84,5 +99,6 @@ void	parse_settings(char *line)
 	if (!ft_strncmp(line, "F ", 2) || !ft_strncmp(line, "C ", 2))
 		return(set_background(line, line[0]));
 	in_map = true;
+	check_all_settings();
 	push_to_map(line);
 }

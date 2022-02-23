@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:39:41 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 11:47:35 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:03:28 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int		exit_mlx(t_cub3d *cub3d)
 {
-	if (cub3d && cub3d->win)
-		mlx_destroy_window(cub3d->mlx, cub3d->win);
-	if (cub3d && cub3d->img.img)
-		mlx_destroy_image(cub3d->mlx, cub3d->img.img);
+	mlx_destroy_window(cub3d->mlx, cub3d->win);
+	mlx_destroy_image(cub3d->mlx, cub3d->img.img);
 	safe_exit();
 	printf("Bye bye!\n");
 	exit(0);
@@ -36,21 +34,29 @@ void	free_split(char **data)
 	}
 }
 
-void	free_if_exists(void *data)
-{
-	if (data)
-		free(data);
-}
-
 void	safe_exit()
 {
 	t_cub3d	*cub3d;
 
 	cub3d = get_cub3d();
-	free_if_exists(cub3d->config.textures[NO]);
-	free_if_exists(cub3d->config.textures[SO]);
-	free_if_exists(cub3d->config.textures[WE]);
-	free_if_exists(cub3d->config.textures[EA]);
+	if (cub3d->mlx && cub3d->config.textures[NO].img.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->config.textures[NO].img.img);	
+	if (cub3d->config.textures[NO].path)
+		free(cub3d->config.textures[NO].path);
+	if (cub3d->mlx && cub3d->config.textures[SO].img.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->config.textures[SO].img.img);	
+	if (cub3d->config.textures[SO].path)
+		free(cub3d->config.textures[SO].path);
+	if (cub3d->mlx && cub3d->config.textures[WE].img.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->config.textures[WE].img.img);	
+	if (cub3d->config.textures[WE].path)
+		free(cub3d->config.textures[WE].path);
+	if (cub3d->mlx && cub3d->config.textures[EA].img.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->config.textures[EA].img.img);
+	if (cub3d->config.textures[EA].path)
+		free(cub3d->config.textures[EA].path);
+	if (cub3d->mlx && cub3d->config.logo.img.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->config.logo.img.img);	
 	free_split(cub3d->config.map.map);
 	free(cub3d);
 }
