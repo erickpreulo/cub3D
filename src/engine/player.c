@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:46:47 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:12:22 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ void	smart_position(double perc_x, double perc_y)
 {
 	t_player	*player;
 	t_cub3d		*cub3d;
-	t_position	temp;
+	t_position	temp_h;
+	t_position	temp_v;
 
 	cub3d = get_cub3d();
 	player = &cub3d->player;
-	temp.x = player->pos.x + 2 * perc_x * PLAYER_STEP;
-	temp.y = player->pos.y + 2 * perc_y * PLAYER_STEP;
-	if (cub3d->config.map.map[(int)player->pos.y][(int)temp.x] != '1')
+	temp_h.x = player->pos.x + 10 * perc_x * PLAYER_STEP;
+	temp_h.y = player->pos.y;
+	temp_v.x = player->pos.x;
+	temp_v.y = player->pos.y + 10 * perc_y * PLAYER_STEP;
+	if (cub3d->config.map.map[(int)temp_h.y][(int)temp_h.x] != '1')
 		player->pos.x += perc_x * PLAYER_STEP * player->speed;
-	if (cub3d->config.map.map[(int)temp.y][(int)player->pos.x] != '1')
+
+	if (cub3d->config.map.map[(int)temp_v.y][(int)temp_v.x] != '1')
 		player->pos.y += perc_y * PLAYER_STEP * player->speed;
 
 }

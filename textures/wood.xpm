@@ -62,7 +62,7 @@ static char *mdi7y_26qz9[] = {
 "V  c #55390C",
 "C  c #56390C",
 "Z  c #573A0C",
-"A  c #573A0D",
+"A  c #0000FF",
 "S  c #583B0C",
 "D  c #583B0D",
 "F  c #593C0C",
