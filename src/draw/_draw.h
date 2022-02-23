@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   _draw.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:02:30 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/19 10:04:03 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 00:37:43 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	render(void);
 void	draw_ceilling(void);
 void	draw_floor(void);
 void	draw_minimap(void);
+void	draw_walls(void);
 
 #endif

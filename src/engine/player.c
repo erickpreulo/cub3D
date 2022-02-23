@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 19:36:54 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 00:31:40 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 void	smart_position(double perc_x, double perc_y)
 {
 	t_player	*player;
+	t_cub3d		*cub3d;
+	t_position	temp;
 
-	player = &get_cub3d()->player;
+	cub3d = get_cub3d();
+	player = &cub3d->player;
+	temp.x = player->pos.x + 2 * perc_x * PLAYER_STEP;
+	temp.y = player->pos.y + 2 * perc_y * PLAYER_STEP;
+	if (cub3d->config.map.map[(int)player->pos.y][(int)temp.x] != '1')
+		player->pos.x += perc_x * PLAYER_STEP;
+	if (cub3d->config.map.map[(int)temp.y][(int)player->pos.x] != '1')
+		player->pos.y += perc_y * PLAYER_STEP;
 
-	player->pos.x += perc_x * PLAYER_STEP;
-	player->pos.y += perc_y * PLAYER_STEP;
 }
 
 void	update_player(void)

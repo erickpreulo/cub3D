@@ -6,7 +6,7 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:16:28 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 16:17:54 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/22 23:39:07 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	key_pressed(int key, t_cub3d *cub3d)
 	if (key == K_M)
 		cub3d->config.minimap = !cub3d->config.minimap;
 	if (key == K_PLUS)
-		printf("+ pressed!\n");
+		cub3d->config.fov = correct_fov(cub3d->config.fov + 0.1);
 	if (key == K_MINUS)
-		printf("- pressed!\n");
+		cub3d->config.fov = correct_fov(cub3d->config.fov - 0.1);
 	if (key == K_ESC)
-		exit_mlx(cub3d);
+		exit_mlx(cub3d);	
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   angles.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 23:40:19 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 19:36:54 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 00:17:13 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,13 @@ double	correct_angle(double angle)
 	if (angle < 0)
 		angle += 2 * PI;
 	return (angle);
+}
+
+double	correct_fov(double fov)
+{
+	if (fov > PI)
+		fov = PI;
+	if (fov < PI / 10)
+		fov = PI / 10;
+	return (fov);
 }

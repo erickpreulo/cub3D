@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 21:05:41 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/22 23:19:333 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@ void	draw_ray_points(void)
 {
 	t_cub3d		*cub3d;
 	t_position	pos;
+	int			i;
 
 	cub3d = get_cub3d();
-	pos.x = MINIMAP_OFFSET + cub3d->ray.pos.x * MINIMAP_RATIO;
-	pos.y = MINIMAP_OFFSET + cub3d->ray.pos.y * MINIMAP_RATIO;
-	pos.x -= 2;
-	pos.y -= 2;
-	draw_square(pos, 5, 5, C_BLUE);
+	i = -1;
+	while (++i < WINDOW_WIDTH)
+	{
+		pos.x = MINIMAP_OFFSET + cub3d->ray[i].pos.x * MINIMAP_RATIO;
+		pos.y = MINIMAP_OFFSET + cub3d->ray[i].pos.y * MINIMAP_RATIO;
+		pos.x -= 2;
+		pos.y -= 2;
+		draw_square(pos, 5, 5, C_BLUE);
+	}
 }
 
 void	draw_aim(void)
@@ -92,5 +97,5 @@ void	draw_minimap(void)
 				draw_minimap_square(y, x);
 	}
 	draw_player();
-	draw_ray_points();
+	//draw_ray_points();
 }

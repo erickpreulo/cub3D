@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 19:36:54 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 00:17:13 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef enum	s_type_texture
+typedef enum	s_texture
 {
 	NO,
 	SO,
 	WE,
 	EA
-}				t_type_texture;
+}				t_texture;
 
 typedef struct	s_color
 {
@@ -43,6 +43,7 @@ typedef struct	s_position
 	double		x;
 	double		y;
 	double		angle;
+	t_texture	texture;
 }				t_position;
 
 typedef struct	s_player
@@ -60,7 +61,7 @@ typedef struct	s_map
 
 typedef struct	s_config
 {
-	int			fov;
+	double		fov;
 	char		*textures[4];
 	int			floor;
 	int			ceilling;
@@ -81,7 +82,7 @@ typedef struct	s_ray
 {
 	double		dist;
 	t_position	pos;
-}				t_ray;
+}					t_ray;
 
 
 typedef struct	s_cub3d
@@ -91,7 +92,7 @@ typedef struct	s_cub3d
 	t_image		img;
 	t_config	config;	
 	t_player	player;
-	t_ray		ray;
+	t_ray		ray[WINDOW_WIDTH];
 }				t_cub3d;
 
 

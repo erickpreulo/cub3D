@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 21:05:32 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 00:37:26 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define WINDOW_HEIGHT 800
 
 //	MINIMAP
-# define MINIMAP_RATIO 20
+# define MINIMAP_RATIO 10
 # define MINIMAP_OFFSET 20
 # define PLAYER_SIZE 5
 
@@ -70,5 +70,6 @@
 
 //	MATH
 # define PI 3.14159265358979323846
+# define DR 0.0174533
 
 #endif

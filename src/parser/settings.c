@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   settings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:35:03 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/21 15:02:53 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 00:09:29 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	set_background(char *line, char c)
 	free_split(colors);
 }
 
-void	set_texture(t_type_texture index, char *line)
+void	set_texture(t_texture index, char *line)
 {
 	const int	len = ft_strlen(line);
 	t_cub3d		*cub3d;
