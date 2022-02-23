@@ -6,7 +6,7 @@
 #    By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 19:18:55 by acanterg          #+#    #+#              #
-#    Updated: 2022/02/23 10:14:12 by aneuwald         ###   ########.fr        #
+#    Updated: 2022/02/23 11:26:14 by aneuwald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ ifeq ($(OS_NAME),Darwin)
 endif
 
 test	: 	re
-			./$(NAME) config.cub
+			./$(NAME) maps/config.cub
 
 all : 		$(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 10:50:20 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:43:17 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void	init_map(void)
 	if (!cub3d->config.map.map)
 		exit_error("Calloc of map failed");
 	cub3d->config.map.height = 0;
-	cub3d->config.map.width = 0;
-	cub3d->config.minimap = true;
-	
+	cub3d->config.map.width = 0;	
 }
 
 void	init_game(int argc, char **argv)

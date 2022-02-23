@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 10:50:55 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:45:40 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@
 # define K_RIGHT 65363
 
 # define K_M 109
+# define K_L 108
+# define K_R 114
 # define K_ESC 65307
+# define K_SHIFT 65505
 
 #else // MAC
 
@@ -60,7 +63,10 @@
 # define K_RIGHT 124
 
 # define K_M 49
+# define K_L 49 	// ERICK TEM QUE TROCAR
+# define K_R 49 	// ERICK TEM QUE TROCAR
 # define K_ESC 53
+# define K_SHIFT 49 	// ERICK TEM QUE TROCAR
 
 #endif
 

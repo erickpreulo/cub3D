@@ -22,11 +22,11 @@ void	draw_ray_points(void)
 	i = -1;
 	while (++i < WINDOW_WIDTH)
 	{
-		pos.x = MINIMAP_OFFSET + cub3d->ray[i].pos.x * MINIMAP_RATIO;
-		pos.y = MINIMAP_OFFSET + cub3d->ray[i].pos.y * MINIMAP_RATIO;
-		pos.x -= 2;
-		pos.y -= 2;
-		draw_square(pos, 5, 5, C_BLUE);
+		pos.x = MINIMAP_OFFSET + cub3d->rays[i].pos.x * MINIMAP_RATIO;
+		pos.y = MINIMAP_OFFSET + cub3d->rays[i].pos.y * MINIMAP_RATIO;
+		pos.x -= 1;
+		pos.y -= 1;
+		draw_square(pos, 3, 3, C_RED);
 	}
 }
 
@@ -85,7 +85,7 @@ void	draw_minimap(void)
 	int y;
 
 	cub3d = get_cub3d();
-	if (cub3d->config.minimap == false)
+	if (cub3d->config.hud.minimap == false)
 		return ;
 
 	y = -1;
@@ -97,5 +97,6 @@ void	draw_minimap(void)
 				draw_minimap_square(y, x);
 	}
 	draw_player();
-	//draw_ray_points();
+	if (cub3d->config.hud.ray)
+		draw_ray_points();
 }

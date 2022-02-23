@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 10:58:41 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:43:04 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_player
 {
 	t_position	pos;
 	t_state		state;
+	int			speed;
 }				t_player;
 
 typedef struct	s_map
@@ -74,6 +75,14 @@ typedef struct	s_texture {
 	int			height;
 }				t_texture;
 
+
+typedef struct	s_hud
+{
+	bool		minimap;
+	bool		logo;
+	bool		ray;
+}					t_hud;
+
 typedef struct	s_config
 {
 	t_texture	textures[4];
@@ -82,7 +91,7 @@ typedef struct	s_config
 	int			ceilling;
 	t_map		map;
 	char		*file;
-	bool		minimap;
+	t_hud		hud;
 }				t_config;
 
 typedef struct	s_ray
@@ -91,7 +100,6 @@ typedef struct	s_ray
 	t_position	pos;
 }					t_ray;
 
-
 typedef struct	s_cub3d
 {
 	void		*win;
@@ -99,7 +107,7 @@ typedef struct	s_cub3d
 	t_image		img;
 	t_config	config;	
 	t_player	player;
-	t_ray		ray[WINDOW_WIDTH];
+	t_ray		rays[WINDOW_WIDTH];
 }				t_cub3d;
 
 

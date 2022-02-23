@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:15:55 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:22:37 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:42:43 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	render(void)
 {
-	t_cub3d	*cub3d;
+	t_cub3d		*cub3d;
+	t_texture	*logo;
 
 	cub3d = get_cub3d();
 	draw_ceilling();
@@ -22,9 +23,11 @@ void	render(void)
 	draw_walls();
 	draw_minimap();
 	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->img.img, 0, 0);
-	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->config.logo.img.img,
-									WINDOW_WIDTH - cub3d->config.logo.width,
-									WINDOW_HEIGHT - cub3d->config.logo.height);
+	logo = &cub3d->config.logo;
+	if (cub3d->config.hud.logo)
+		mlx_put_image_to_window(cub3d->mlx, cub3d->win, logo->img.img,
+										WINDOW_WIDTH - logo->width,
+										WINDOW_HEIGHT - logo->height);
 
 	// TEMPORARY! TEXTURES AT LEFT BOTTOM
 	for (int i = 0; i < 4; i++)

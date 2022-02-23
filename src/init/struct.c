@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:28:32 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:00:41 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:49:47 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ void	init_struct(void)
 	cub3d->config.logo.img.img = NULL;
 	cub3d->config.floor = -1;
 	cub3d->config.ceilling = -1;
+	cub3d->config.map.map = NULL;
+	cub3d->config.hud.minimap = true;
+	cub3d->config.hud.ray = false;
+	cub3d->config.hud.logo = true;
+
+
 }

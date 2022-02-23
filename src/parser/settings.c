@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:35:03 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 10:44:21 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:30:56 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	set_background(char *line, char c)
 	if (i != 3)
 		exit_error("Background (F or C) must have 3 colors");
 	if (c == 'F')
-		cub3d->config.floor = create_color(ft_atoi(colors[0]),
-			ft_atoi(colors[1]), ft_atoi(colors[2]));
+		cub3d->config.floor = create_color((char)ft_atoi(colors[0]),
+			(char)ft_atoi(colors[1]), (char)ft_atoi(colors[2]));
 	else
-		cub3d->config.ceilling = create_color(ft_atoi(colors[0]),
-			ft_atoi(colors[1]), ft_atoi(colors[2]));
+		cub3d->config.ceilling = create_color((char)ft_atoi(colors[0]),
+			(char)ft_atoi(colors[1]), (char)ft_atoi(colors[2]));
 	free_split(colors);
 }
 

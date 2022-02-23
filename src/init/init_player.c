@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:06:28 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 10:47:31 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:33:09 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void	init_player(void)
 	cub3d->player.state.movingRight = false;
 	cub3d->player.state.rotatingLeft = false;
 	cub3d->player.state.rotatingRight = false;
+	cub3d->player.speed = 1;
 	get_position_on_map();
 }

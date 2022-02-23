@@ -6,7 +6,7 @@
 /*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:10:06 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:43:26 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,15 +105,15 @@ void	update_raycast(void)
 		pos_v = get_ray_vertical(cub3d, angle);
 		if (calc_dist(pos_h, cub3d->player.pos) <= calc_dist(pos_v, cub3d->player.pos))
 		{
-			cub3d->ray[i].pos = pos_h;
-			cub3d->ray[i].dist = calc_dist(pos_h, cub3d->player.pos);
+			cub3d->rays[i].pos = pos_h;
+			cub3d->rays[i].dist = calc_dist(pos_h, cub3d->player.pos);
 		}
 		else
 		{
-			cub3d->ray[i].pos = pos_v;
-			cub3d->ray[i].dist = calc_dist(pos_v, cub3d->player.pos);
+			cub3d->rays[i].pos = pos_v;
+			cub3d->rays[i].dist = calc_dist(pos_v, cub3d->player.pos);
 		}
-		ca = correct_angle(cub3d->player.pos.angle - cub3d->ray[i].pos.angle);
-		cub3d->ray[i].dist *= cos(ca);
+		ca = correct_angle(cub3d->player.pos.angle - cub3d->rays[i].pos.angle);
+		cub3d->rays[i].dist *= cos(ca);
 	}
 }
