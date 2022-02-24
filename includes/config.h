@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:05 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:45:40 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:25:02 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define K_M 49
-# define K_L 49 	// ERICK TEM QUE TROCAR
-# define K_R 49 	// ERICK TEM QUE TROCAR
+# define K_M 46
+# define K_L 37
+# define K_R 15
 # define K_ESC 53
-# define K_SHIFT 49 	// ERICK TEM QUE TROCAR
+# define K_SHIFT 257
 
 #endif
 

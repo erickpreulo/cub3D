@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:06:28 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:33:09 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:23:44 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_position_on_map(void)
 	int		y;
 	int		x;
 	char	c;
-	
+
 	cub3d = get_cub3d();
 	c = 0;
 	y = -1;
@@ -45,7 +45,7 @@ void	get_position_on_map(void)
 		while (cub3d->config.map.map[y][++x])
 		{
 			c = cub3d->config.map.map[y][x];
-			if(c == 'N' || c == 'S' || c == 'E' || c == 'W')
+			if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 			{
 				set_player_position(x, y, c);
 				cub3d->config.map.map[y][x] = '0';
@@ -58,17 +58,17 @@ void	get_position_on_map(void)
 void	init_player(void)
 {
 	t_cub3d	*cub3d;
-	
+
 	cub3d = get_cub3d();
 	cub3d->player.pos.x = 0;
 	cub3d->player.pos.y = 0;
 	cub3d->player.pos.angle = 0;
-	cub3d->player.state.movingUp = false;
-	cub3d->player.state.movingDown = false;
-	cub3d->player.state.movingLeft = false;
-	cub3d->player.state.movingRight = false;
-	cub3d->player.state.rotatingLeft = false;
-	cub3d->player.state.rotatingRight = false;
+	cub3d->player.state.movingup = false;
+	cub3d->player.state.movingdown = false;
+	cub3d->player.state.movingleft = false;
+	cub3d->player.state.movingright = false;
+	cub3d->player.state.rotatingleft = false;
+	cub3d->player.state.rotatingright = false;
 	cub3d->player.speed = 1;
 	get_position_on_map();
 }

@@ -47,13 +47,13 @@ static char *_z63a_fwq0i[] = {
 "g c #6F6F6F",
 "h c gray44",
 "j c #717171",
-"k c #ff0000",
+"k c #FF0000",
 "l c #7C7C7C",
 "z c gray49",
 "x c #7E7E7E",
 "c c #808080",
 "v c #818181",
-"b c #FF0000",
+"b c #FFFFFF",
 "n c gray53",
 "m c #8B8B8B",
 "M c #8D8D8D",
@@ -79,7 +79,7 @@ static char *_z63a_fwq0i[] = {
 "R c #B4B4B4",
 "E c gray71",
 /* pixels */
-"kbMFvDJKNBNNNBBBNNNBNBNYETLIPDmn",
+"bbMFvDJKNBNNNBBbNNNBNBNYETLIPDmb",
 "bsypuuyuurtq09w778qw439979q7687f",
 "Ou8e9904940w*--->11,=:<=*<:*:;,d",
 "$i4*,:,<:;11<<;-=1&->;,=;>-==-<g",
@@ -94,7 +94,7 @@ static char *_z63a_fwq0i[] = {
 "$;,<<>;>2-:->&:;=;;&:-,=&-<:>=;A",
 "+&;;-:,=,*112>=:>1;*1,>;*1<,;;:S",
 "@;=>=:**>:>1==,,;,>1,,-;,>&>-;:l",
-"O+O+o+@oXOO o++X+X$O@.%+#X@ooo+z",
+"bbO+o+@oXOO o++b+X$O@.%+#X@ooo+b",
 "PPIPILLUJHHGcGcfjcvvIREYETJHJKKl",
 "8qw439979q7687Xdsypuuyuurtq09w77",
 "11,=:<=*<:*:;,Xgu8e9904940w*--->",
@@ -109,6 +109,6 @@ static char *_z63a_fwq0i[] = {
 ":><;-:>*>>:,21%A:*-2<:>:-2,<<1><",
 ";;&:-,=&-<:>=;oS;,<<>;>2-:->&:;=",
 "1;*1,>;*1<,;;:%l&;;-:,=,*112>=:>",
-",>1,,-;,>&>-;:+z;=>=:**>:>1==,,;",
-"X$O@.%+#X@ooo+Xl+O+o+@oXOO o++X+"
+"b>1,,-;,>&>-;:+z;=>=:**>:>1==,,;",
+"k$O@.%+#X@ooo+Xb+O+o+@oXOO o++Xb"
 };

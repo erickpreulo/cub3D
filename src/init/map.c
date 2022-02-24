@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:36:43 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 10:27:51 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:27:11 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ void	validation_map_shape(t_cub3d *cub3d, int i, int j)
 	validation_map_possible_characters(cub3d, i, j);
 }
 
+bool	find_player(t_cub3d *cub3d, int i, int j)
+{
+	if (cub3d->config.map.map[i][j] == 'N'
+		|| cub3d->config.map.map[i][j] == 'S'
+		|| cub3d->config.map.map[i][j] == 'W'
+		|| cub3d->config.map.map[i][j] == 'E')
+		return (true);
+	return (false);
+}
+
 void	validation_map(void)
 {
 	t_cub3d	*cub3d;
@@ -65,10 +75,7 @@ void	validation_map(void)
 		while (cub3d->config.map.map[i][++j] != '\0')
 		{
 			validation_map_shape(cub3d, i, j);
-			if (cub3d->config.map.map[i][j] == 'N'
-				|| cub3d->config.map.map[i][j] == 'S'
-				|| cub3d->config.map.map[i][j] == 'W'
-				|| cub3d->config.map.map[i][j] == 'E')
+			if (find_player(cub3d, i, j))
 			{
 				if (player)
 					exit_error("MAP Player");

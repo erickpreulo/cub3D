@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 09:47:44 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 19:36:54 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:32:27 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ t_position	limit_position(void)
 	return (pos);
 }
 
-double		calc_dist(t_position pos1, t_position pos2)
+double	calc_dist(t_position pos1, t_position pos2)
 {
 	double	dist;
 
-	dist = (pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y);
+	dist = (pos1.x - pos2.x) * (pos1.x - pos2.x)
+		+ (pos1.y - pos2.y) * (pos1.y - pos2.y);
 	return (sqrt(dist));
 }

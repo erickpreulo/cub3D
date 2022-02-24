@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:15:55 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:42:43 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 19:53:11 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@ void	render(void)
 	logo = &cub3d->config.logo;
 	if (cub3d->config.hud.logo)
 		mlx_put_image_to_window(cub3d->mlx, cub3d->win, logo->img.img,
-										WINDOW_WIDTH - logo->width,
-										WINDOW_HEIGHT - logo->height);
-
-	// TEMPORARY! TEXTURES AT LEFT BOTTOM
-	for (int i = 0; i < 4; i++)
-	{
-		mlx_put_image_to_window(cub3d->mlx, cub3d->win,
-			cub3d->config.textures[i].img.img,
-			i * 32,
-			WINDOW_HEIGHT - 32);
-	}
+			WINDOW_WIDTH - logo->width,
+			WINDOW_HEIGHT - logo->height);
 }

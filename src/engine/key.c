@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:16:28 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:49:35 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:25:53 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 int	key_pressed(int key, t_cub3d *cub3d)
 {
 	if (key == K_W)
-		cub3d->player.state.movingUp = true;
+		cub3d->player.state.movingup = true;
 	if (key == K_S)
-		cub3d->player.state.movingDown = true;
+		cub3d->player.state.movingdown = true;
 	if (key == K_A)
-		cub3d->player.state.movingLeft = true;
+		cub3d->player.state.movingleft = true;
 	if (key == K_D)
-		cub3d->player.state.movingRight = true;
+		cub3d->player.state.movingright = true;
 	if (key == K_LEFT)
-		cub3d->player.state.rotatingLeft = true;
+		cub3d->player.state.rotatingleft = true;
 	if (key == K_RIGHT)
-		cub3d->player.state.rotatingRight = true;
+		cub3d->player.state.rotatingright = true;
 	if (key == K_M)
 		cub3d->config.hud.minimap = !cub3d->config.hud.minimap;
 	if (key == K_R)
@@ -42,17 +42,17 @@ int	key_pressed(int key, t_cub3d *cub3d)
 int	key_released(int key, t_cub3d *cub3d)
 {
 	if (key == K_W)
-		cub3d->player.state.movingUp = false;
+		cub3d->player.state.movingup = false;
 	if (key == K_S)
-		cub3d->player.state.movingDown = false;
+		cub3d->player.state.movingdown = false;
 	if (key == K_A)
-		cub3d->player.state.movingLeft = false;
+		cub3d->player.state.movingleft = false;
 	if (key == K_D)
-		cub3d->player.state.movingRight = false;
+		cub3d->player.state.movingright = false;
 	if (key == K_LEFT)
-		cub3d->player.state.rotatingLeft = false;
+		cub3d->player.state.rotatingleft = false;
 	if (key == K_RIGHT)
-		cub3d->player.state.rotatingRight = false;
+		cub3d->player.state.rotatingright = false;
 	if (key == K_SHIFT)
 		cub3d->player.speed = 1;
 	return (0);

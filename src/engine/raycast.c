@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:43:26 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:32:37 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ void	find_obstacle(t_cub3d *cub3d, t_position *ray, t_position *incr)
 	while (1)
 	{
 		if (ray->y <= 0 || ray->y >= cub3d->config.map.height - 1)
-			break;
+			break ;
 		if (ray->x <= 0 || ray->x >= cub3d->config.map.width - 1)
-			break;
+			break ;
 		if (cub3d->config.map.map[(int)ray->y][(int)ray->x] == '1')
-			break;
+			break ;
 		ray->x += incr->x;
 		ray->y += incr->y;
 	}
 }
 
-t_position get_ray_horizontal(t_cub3d *cub3d, double angle)
+t_position	get_ray_horizontal(t_cub3d *cub3d, double angle)
 {
 	t_position	ray;
 	t_position	incr;
 	double		a_tan;
 
 	ray.angle = angle;
-	a_tan = -1/tan(ray.angle);
+	a_tan = -1 / tan(ray.angle);
 	if (ray.angle == 0 || ray.angle == PI)
 		return (limit_position());
 	ray.y = ceil(cub3d->player.pos.y);
@@ -50,10 +50,9 @@ t_position get_ray_horizontal(t_cub3d *cub3d, double angle)
 	incr.x = incr.y * a_tan;
 	find_obstacle(cub3d, &ray, &incr);
 	return (ray);
-	
 }
 
-t_position get_ray_vertical(t_cub3d *cub3d, double angle)
+t_position	get_ray_vertical(t_cub3d *cub3d, double angle)
 {
 	t_position	ray;
 	t_position	incr;
@@ -103,7 +102,8 @@ void	update_raycast(void)
 		angle = get_piece_of_angle(i, cub3d);
 		pos_h = get_ray_horizontal(cub3d, angle);
 		pos_v = get_ray_vertical(cub3d, angle);
-		if (calc_dist(pos_h, cub3d->player.pos) <= calc_dist(pos_v, cub3d->player.pos))
+		if (calc_dist(pos_h, cub3d->player.pos)
+			<= calc_dist(pos_v, cub3d->player.pos))
 		{
 			cub3d->rays[i].pos = pos_h;
 			cub3d->rays[i].dist = calc_dist(pos_h, cub3d->player.pos);

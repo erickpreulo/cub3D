@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 14:12:22 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:09:58 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ void	smart_position(double perc_x, double perc_y)
 	temp_v.y = player->pos.y + 10 * perc_y * PLAYER_STEP;
 	if (cub3d->config.map.map[(int)temp_h.y][(int)temp_h.x] != '1')
 		player->pos.x += perc_x * PLAYER_STEP * player->speed;
-
 	if (cub3d->config.map.map[(int)temp_v.y][(int)temp_v.x] != '1')
 		player->pos.y += perc_y * PLAYER_STEP * player->speed;
-
 }
 
 void	update_player(void)
@@ -38,17 +36,17 @@ void	update_player(void)
 	t_player	*player;
 
 	player = &get_cub3d()->player;
-	if (player->state.movingUp)
+	if (player->state.movingup)
 		smart_position(cos(player->pos.angle), -sin(player->pos.angle));
-	if (player->state.movingDown)
+	if (player->state.movingdown)
 		smart_position(-cos(player->pos.angle), sin(player->pos.angle));
-	if (player->state.movingLeft)
+	if (player->state.movingleft)
 		smart_position(-sin(player->pos.angle), -cos(player->pos.angle));
-	if (player->state.movingRight)
+	if (player->state.movingright)
 		smart_position(sin(player->pos.angle), cos(player->pos.angle));
-	if (player->state.rotatingLeft)
+	if (player->state.rotatingleft)
 		player->pos.angle += PLAYER_STEP * player->speed;
-	if (player->state.rotatingRight)
+	if (player->state.rotatingright)
 		player->pos.angle -= PLAYER_STEP * player->speed;
 	player->pos = fix_boundaries(player->pos);
 }

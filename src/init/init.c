@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 12:45:19 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:24:04 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	init_mlx(void)
 {
 	t_cub3d	*cub3d;
-	
+
 	cub3d = get_cub3d();
 	cub3d->mlx = mlx_init();
 	cub3d->win = mlx_new_window(cub3d->mlx, WINDOW_WIDTH,
-										WINDOW_HEIGHT, "CUB3D");
+			WINDOW_HEIGHT, "CUB3D");
 	cub3d->img.img = mlx_new_image(cub3d->mlx,
-										WINDOW_WIDTH, WINDOW_HEIGHT);
+			WINDOW_WIDTH, WINDOW_HEIGHT);
 	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img, &cub3d->img.bpp,
-								&cub3d->img.line_length, &cub3d->img.endian);
+			&cub3d->img.line_length, &cub3d->img.endian);
 	mlx_hook(cub3d->win, 2, 1L << 0, key_pressed, cub3d);
 	mlx_hook(cub3d->win, 3, 1L << 1, key_released, cub3d);
 	mlx_hook(cub3d->win, 33, 1L << 17, exit_mlx, cub3d);
@@ -32,13 +32,13 @@ void	init_mlx(void)
 void	init_map(void)
 {
 	t_cub3d	*cub3d;
-	
+
 	cub3d = get_cub3d();
 	cub3d->config.map.map = ft_calloc(100, sizeof(char *));
 	if (!cub3d->config.map.map)
 		exit_error("Calloc of map failed");
 	cub3d->config.map.height = 0;
-	cub3d->config.map.width = 0;	
+	cub3d->config.map.width = 0;
 }
 
 void	init_game(int argc, char **argv)

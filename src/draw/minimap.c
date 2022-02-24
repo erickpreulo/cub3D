@@ -72,22 +72,20 @@ void	draw_minimap_square(int i, int j)
 	// if (c == ' ')
 	// 	draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_GRAY);
 	if (c == '1')
-		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_BLACK);	
+		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_BLACK);
 	else
 		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_WHITE);
-	
 }
 
 void	draw_minimap(void)
 {
 	t_cub3d	*cub3d;
-	int x;
-	int y;
+	int		x;
+	int		y;
 
 	cub3d = get_cub3d();
 	if (cub3d->config.hud.minimap == false)
 		return ;
-
 	y = -1;
 	while (++y < cub3d->config.map.height)
 	{

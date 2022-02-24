@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:51:53 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 11:27:43 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:23:41 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_file()
+void	init_file(void)
 {
 	t_cub3d		*cub3d;
 	char		*ext;
@@ -20,7 +20,7 @@ void	init_file()
 	int			ret;
 	char		*line;
 
-	cub3d =  get_cub3d();
+	cub3d = get_cub3d();
 	ext = ft_strrchr(cub3d->config.file, '.');
 	if (!ext || ft_strcmp(ext, ".cub"))
 		exit_error("File must have .cub extension!");

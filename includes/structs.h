@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/23 12:47:31 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:04:49 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef enum	s_direction
+typedef enum s_direction
 {
 	NO,
 	SO,
@@ -21,24 +21,24 @@ typedef enum	s_direction
 	EA
 }				t_direction;
 
-typedef struct	s_color
+typedef struct s_color
 {
 	int			r;
 	int			g;
 	int			b;
 }				t_color;
 
-typedef struct	s_state
+typedef struct s_state
 {
-	bool		movingUp;
-	bool		movingDown;
-	bool		movingLeft;
-	bool		movingRight;
-	bool		rotatingLeft;
-	bool		rotatingRight;
+	bool		movingup;
+	bool		movingdown;
+	bool		movingleft;
+	bool		movingright;
+	bool		rotatingleft;
+	bool		rotatingright;
 }				t_state;
 
-typedef struct	s_position
+typedef struct s_position
 {
 	double		x;
 	double		y;
@@ -46,21 +46,21 @@ typedef struct	s_position
 	t_direction	direction;
 }				t_position;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	t_position	pos;
 	t_state		state;
 	int			speed;
 }				t_player;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char		**map;
 	int			width;
 	int			height;
 }				t_map;
 
-typedef struct	s_image {
+typedef struct s_image {
 	void		*img;
 	char		*addr;
 	int			bpp;
@@ -68,22 +68,21 @@ typedef struct	s_image {
 	int			endian;
 }				t_image;
 
-typedef struct	s_texture {
+typedef struct s_texture {
 	t_image		img;
 	char		*path;
 	int			width;
 	int			height;
 }				t_texture;
 
-
-typedef struct	s_hud
+typedef struct s_hud
 {
 	bool		minimap;
 	bool		logo;
 	bool		ray;
 }					t_hud;
 
-typedef struct	s_config
+typedef struct s_config
 {
 	t_texture	textures[4];
 	t_texture	logo;
@@ -94,13 +93,13 @@ typedef struct	s_config
 	t_hud		hud;
 }				t_config;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	double		dist;
 	t_position	pos;
 }					t_ray;
 
-typedef struct	s_cub3d
+typedef struct s_cub3d
 {
 	void		*win;
 	void		*mlx;
@@ -109,6 +108,5 @@ typedef struct	s_cub3d
 	t_player	player;
 	t_ray		rays[WINDOW_WIDTH];
 }				t_cub3d;
-
 
 #endif

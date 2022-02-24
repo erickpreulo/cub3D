@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:05:57 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/20 00:38:25 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:28:12 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	append_spaces(char **row)
 void	fix_map_rows(void)
 {
 	t_cub3d	*cub3d;
-	int 	i;
+	int		i;
 	int		len;
 
 	cub3d = get_cub3d();
@@ -52,28 +52,26 @@ void	fix_map_rows(void)
 
 void	push_char(char c, char *row)
 {
-	int i;
+	int	i;
 	int	correct_char;
 
 	correct_char = c;
 	if (c == '\t')
 		correct_char = ' ';
-
 	i = 0;
-	while(row[i])
+	while (row[i])
 		i++;
 	row[i] = correct_char;
 	if (c != '\t')
-		return;
+		return ;
 	row[++i] = correct_char;
 	row[++i] = correct_char;
 	row[++i] = correct_char;
-
 }
 
 void	push_to_map(char *line)
 {
-	t_cub3d 	*cub3d;
+	t_cub3d		*cub3d;
 	int			len;
 	int			i;
 	int			index;
@@ -82,7 +80,7 @@ void	push_to_map(char *line)
 	index = cub3d->config.map.height;
 	len = ft_strlen(line);
 	i = -1;
-	while(line[++i] != '\0')
+	while (line[++i] != '\0')
 		if (line[++i] == '\t')
 			len += 3;
 	if (len > cub3d->config.map.width)
@@ -91,7 +89,7 @@ void	push_to_map(char *line)
 	if (!cub3d->config.map.map[index])
 		exit_error("Calloc failed on creating map row");
 	i = -1;
-	while(line[++i] != '\0')
+	while (line[++i] != '\0')
 		push_char(line[i], cub3d->config.map.map[index]);
 	cub3d->config.map.height++;
 }
