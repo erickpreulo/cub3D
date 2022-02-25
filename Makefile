@@ -6,7 +6,7 @@
 #    By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 19:18:55 by acanterg          #+#    #+#              #
-#    Updated: 2022/02/25 09:46:46 by acanterg         ###   ########.fr        #
+#    Updated: 2022/02/25 10:15:36 by acanterg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,12 +52,12 @@ init	: 	re
 
 clean :
 			rm -rf $(NAME)
-			#make clean -C $(LIBFT)
+			make clean -C $(LIBFT)
 
 bonus :		all
 
 fclean :	clean
-			#make fclean -C $(LIBFT)
+			make fclean -C $(LIBFT)
 
 re :		fclean all
 

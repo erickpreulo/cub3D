@@ -6,7 +6,7 @@
 /*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:47:09 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/25 10:12:28 by acanterg         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:52:39 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,19 @@ t_color	get_color(int c)
 	color.g = (c >> 8) & 0xff;
 	color.r = (c >> 16) & 0xff;
 	return (color);
+}
+
+void	verify_color_chars(char **colors)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < 3)
+	{
+		j = -1;
+		while (colors[i][++j] != '\0')
+			if (!ft_isdigit(colors[i][j]))
+				exit_error("Background (F or C) has invalid char inside");
+	}
 }

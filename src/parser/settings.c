@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   settings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 10:35:03 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 13:31:06 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/25 10:53:48 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,23 @@
 
 void	f_verification(t_cub3d *cub3d, int c, char **colors)
 {
+	int	r;
+	int	g;
+	int	b;
+
+	verify_color_chars(colors);
+	r = ft_atoi(colors[0]);
+	g = ft_atoi(colors[1]);
+	b = ft_atoi(colors[2]);
+	if (r > 255 || g > 255 || b > 255)
+		exit_error
+			("Do you really believe that exist a color with this number?");
 	if (c == 'F')
-		cub3d->config.floor = create_color((char)ft_atoi(colors[0]),
-				(char)ft_atoi(colors[1]), (char)ft_atoi(colors[2]));
+		cub3d->config.floor = create_color((char)r,
+				(char)g, (char)b);
 	else
-		cub3d->config.ceilling = create_color((char)ft_atoi(colors[0]),
-				(char)ft_atoi(colors[1]), (char)ft_atoi(colors[2]));
+		cub3d->config.ceilling = create_color((char)r,
+				(char)g, (char)b);
 }
 
 void	set_background(char *line, char c)
@@ -31,10 +42,10 @@ void	set_background(char *line, char c)
 	cub3d = get_cub3d();
 	i = 1;
 	while (line[++i] != '\0')
-		if (line[i] != ',' && line[i] != ' ' && !ft_isdigit(line[i]))
+		if (line[i] != ',' && !ft_isspace(line[i]) && !ft_isdigit(line[i]))
 			exit_error("Background (F or C) has invalid char");
 	i = 1;
-	while (i == ' ' && i < ft_strlen(line))
+	while (ft_isspace(line[i]) && line[i] != '\0')
 		i++;
 	colors = ft_split(line + i, ',');
 	if (!colors)
@@ -55,12 +66,12 @@ void	set_texture(t_direction dir, char *line)
 	char	*ext;
 
 	cub3d = get_cub3d();
-	ext = ft_strrchr(line, '.');
+	texture_path = ft_strtrim(line + 2, " \t");
+	if (!texture_path)
+		exit_error("Error on ft_strtrim texture_path");
+	ext = ft_strrchr(texture_path, '.');
 	if (!ext || ft_strcmp(ext, ".xpm"))
 		exit_error("Texture must have .xpm extension");
-	texture_path = ft_strdup(ft_strchr(line, '.'));
-	if (!texture_path)
-		exit_error("Error on malloc texture_path");
 	if (cub3d->config.textures[dir].path)
 		exit_error("Duplicated texture key");
 	cub3d->config.textures[dir].path = texture_path;
@@ -93,15 +104,16 @@ void	parse_settings(char *line)
 		return (exit_error("Map cut"));
 	if (!ft_strcmp(line, "\0"))
 		return ;
-	if (!ft_strncmp(line, "NO ", 3))
+	if (!ft_strncmp(line, "NO ", 3) || !ft_strncmp(line, "NO\t", 3))
 		return (set_texture(NO, line));
-	if (!ft_strncmp(line, "SO ", 3))
+	if (!ft_strncmp(line, "SO ", 3) || !ft_strncmp(line, "SO\t", 3))
 		return (set_texture(SO, line));
-	if (!ft_strncmp(line, "WE ", 3))
+	if (!ft_strncmp(line, "WE ", 3) || !ft_strncmp(line, "WE\t", 3))
 		return (set_texture(WE, line));
-	if (!ft_strncmp(line, "EA ", 3))
+	if (!ft_strncmp(line, "EA ", 3) || !ft_strncmp(line, "EA\t", 3))
 		return (set_texture(EA, line));
-	if (!ft_strncmp(line, "F ", 2) || !ft_strncmp(line, "C ", 2))
+	if (!ft_strncmp(line, "F ", 2) || !ft_strncmp(line, "C ", 2)
+		|| !ft_strncmp(line, "F\t", 2) || !ft_strncmp(line, "C\t", 2))
 		return (set_background(line, line[0]));
 	in_map = true;
 	check_all_settings();

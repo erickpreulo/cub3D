@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   _utils.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:40:32 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 23:43:01 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:53:05 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ t_position	new_position(void);
 t_position	limit_position(void);
 int			apply_shadow(int color, double dist);
 int			apply_shadow_background(int color, double y);
+void		verify_color_chars(char **colors);
+
 #endif
