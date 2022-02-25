@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 09:38:37 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/22 23:19:333 by aneuwald         ###   ########.fr       */
+/*   Created: 2022/02/25 10:11:59 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/25 10:12:16 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ void	draw_minimap_square(int i, int j)
 	c = cub3d->config.map.map[i][j];
 	pos.x = MINIMAP_OFFSET + j * MINIMAP_RATIO;
 	pos.y = MINIMAP_OFFSET + i * MINIMAP_RATIO;
-	// if (c == ' ')
-	// 	draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_GRAY);
 	if (c == '1')
 		draw_square(pos, MINIMAP_RATIO, MINIMAP_RATIO, C_BLACK);
 	else

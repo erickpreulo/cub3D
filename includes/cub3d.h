@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:12:40 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 20:47:42 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/25 09:24:40 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdbool.h>
 
 # include "../libft/libft.h"
-//# include <mlx.h>				// MAC
-# include "../minilibx-linux/mlx.h"	// LINUX
+# include <mlx.h>				// MAC
+//# include "../minilibx-linux/mlx.h"	// LINUX
 
 # include "config.h"
 # include "structs.h"

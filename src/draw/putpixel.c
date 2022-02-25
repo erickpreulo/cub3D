@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   putpixel.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:03:36 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/25 00:00:44 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:10:33 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ void	draw_square(t_position start, int width, int height, int color)
 		x++;
 	}
 }
-

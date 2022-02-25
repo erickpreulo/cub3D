@@ -5,6 +5,7 @@
 		"_parser.h": "c",
 		"cmath": "c",
 		"float.h": "c",
-		"limits": "c"
+		"limits": "c",
+		"mlx.h": "c"
 	}
 }

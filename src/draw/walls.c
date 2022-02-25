@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 23:40:26 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 23:28:36 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:09:46 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	get_w (int i)
+double	get_w(int i)
 {
 	t_cub3d		*cub3d;
 	t_direction	dir;
-	
+
 	cub3d = get_cub3d();
 	dir = cub3d->rays[i].pos.direction;
-
 	if (dir == NO)
 		return (cub3d->rays[i].pos.x - floor(cub3d->rays[i].pos.x));
 	if (dir == SO)
@@ -29,16 +28,15 @@ double	get_w (int i)
 	if (dir == EA)
 		return (cub3d->rays[i].pos.y - floor(cub3d->rays[i].pos.y));
 	return (0);
-
 }
 
-int		get_texture_color(t_texture *t, double h, double w, double dist)
+int	get_texture_color(t_texture *t, double h, double w, double dist)
 {
-	int	*addr = (int *)t->img.addr;
-	int color;
+	int	*addr;
+	int	color;
 
+	addr = (int *)t->img.addr;
 	color = addr[t->height * ((int)(h * t->height)) + (int)(w * t->width)];
-	
 	return (apply_shadow(color, dist));
 }
 
@@ -52,12 +50,12 @@ void	draw_line_wall(int i, double dist, t_cub3d *cub3d)
 
 	j = (WINDOW_HEIGHT / 2) - size;
 	t = &cub3d->config.textures[cub3d->rays[i].pos.direction];
-	//temp = (int *)&(t->img.addr);
 	while (++j < (WINDOW_HEIGHT / 2) + size)
 	{
 		if (j < 0 || j > WINDOW_HEIGHT - 1)
 			continue ;
-		h = ((double)j - ((WINDOW_HEIGHT - (2 * size)) / 2)) / (double) (2 * size);
+		h = ((double)j - ((WINDOW_HEIGHT - (2 * size)) / 2))
+			/ (double)(2 * size);
 		my_mlx_pixel_put(&cub3d->img, i, j, get_texture_color(t, h, w, dist));
 	}
 }

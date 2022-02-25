@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:47:09 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/25 00:04:00 by aneuwald         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:12:28 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	create_color(int r, int g, int b)
 
 int	apply_shadow(int color, double dist)
 {
-	double div;
+	double	div;
 
-	div = dist / 0.9;
+	div = dist / 0.5;
 	if (div <= 1)
 		return (color);
 	return (((int)(((0xFF0000 & color) >> 16) / div) << 16)
@@ -32,7 +32,7 @@ int	apply_shadow(int color, double dist)
 int	apply_shadow_background(int color, double y)
 {
 	double	div;
-	
+
 	div = fabs(y - (WINDOW_HEIGHT / 2)) / (WINDOW_HEIGHT / 2) * 0.7;
 	return (((int)(((0xFF0000 & color) >> 16) * div) << 16)
 		+ ((int)(((0x00FF00 & color) >> 8) * div) << 8)

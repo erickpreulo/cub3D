@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+         #
+#    By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/19 19:18:55 by acanterg          #+#    #+#              #
-#    Updated: 2022/02/24 20:51:57 by aneuwald         ###   ########.fr        #
+#    Updated: 2022/02/25 09:46:46 by acanterg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,22 +33,22 @@ ifeq ($(OS_NAME),Darwin)
 	MLX_F = $(MLX_MAC)
 endif
 
-test	: 	re
-			./$(NAME) maps/config.cub
-
 all : 		$(NAME)
 
 $(NAME) :	lib
-			echo -n ">>> cub3d... "
-			$(GCC) $(CFLAGS) $(FSANIT) -o $(NAME) $(SRC) $(INCLUD) $(MLX_LNX) $(LIBS)
+			echo -n cub3d...
+			$(GCC) $(CFLAGS) $(FSANIT) -o $(NAME) $(SRC) $(INCLUD) $(MLX_42) $(LIBS)
 			rm -rf *.dSYM
-			echo "[DONE]"
+			echo " [DONE]"
 			
-lib		:	
-			echo -n ">>> libft... "
+lib		:
+			echo -n libft...
 			make re -C $(LIBFT)
 			make clean -C $(LIBFT)
-			echo "[DONE]"
+			echo " [DONE]"
+
+init	: 	re
+			./$(NAME) maps/config.cub
 
 clean :
 			rm -rf $(NAME)

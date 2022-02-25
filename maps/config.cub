@@ -4,7 +4,7 @@ WE ./textures/wall3.xpm
 EA ./textures/wall4.xpm
 
 C 53,81,190
-F 52,140,49
+F 120,140,112
 
   11111111111
   10000000001

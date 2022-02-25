@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:40:23 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 13:32:37 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/25 10:07:30 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,15 @@ double	get_piece_of_angle(int i, t_cub3d *cub3d)
 {
 	double	angle;
 
-	angle = cub3d->player.pos.angle + PLAYER_FOV / 2;
-	angle -= DR * (double)i;
+	angle = cub3d->player.pos.angle + cub3d->config.fov / 2;
+	angle -= cub3d->config.dr * (double)i;
 	return (correct_angle(angle));
 }
 
 void	update_raycast(void)
 {
 	t_cub3d		*cub3d;
-	t_position	pos_h;
-	t_position	pos_v;
+	t_position	pos[2];
 	int			i;
 	double		angle;
 	double		ca;
@@ -100,19 +99,14 @@ void	update_raycast(void)
 	while (++i < WINDOW_WIDTH)
 	{
 		angle = get_piece_of_angle(i, cub3d);
-		pos_h = get_ray_horizontal(cub3d, angle);
-		pos_v = get_ray_vertical(cub3d, angle);
-		if (calc_dist(pos_h, cub3d->player.pos)
-			<= calc_dist(pos_v, cub3d->player.pos))
-		{
-			cub3d->rays[i].pos = pos_h;
-			cub3d->rays[i].dist = calc_dist(pos_h, cub3d->player.pos);
-		}
+		pos[0] = get_ray_horizontal(cub3d, angle);
+		pos[1] = get_ray_vertical(cub3d, angle);
+		if (calc_dist(pos[0], cub3d->player.pos)
+			<= calc_dist(pos[1], cub3d->player.pos))
+			cub3d->rays[i].pos = pos[0];
 		else
-		{
-			cub3d->rays[i].pos = pos_v;
-			cub3d->rays[i].dist = calc_dist(pos_v, cub3d->player.pos);
-		}
+			cub3d->rays[i].pos = pos[1];
+		cub3d->rays[i].dist = calc_dist(cub3d->rays[i].pos, cub3d->player.pos);
 		ca = correct_angle(cub3d->player.pos.angle - cub3d->rays[i].pos.angle);
 		cub3d->rays[i].dist *= cos(ca);
 	}

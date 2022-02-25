@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _engine.h                                          :+:      :+:    :+:   */
+/*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 21:02:30 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/25 09:35:10 by acanterg         ###   ########.fr       */
+/*   Created: 2022/02/25 09:33:47 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/25 10:08:04 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ENGINE_H
-# define _ENGINE_H
+#include "cub3d.h"
 
-int		loop_handler(t_cub3d *cub3d);
-int		key_pressed(int key, t_cub3d *cub3d);
-int		key_released(int key, t_cub3d *cub3d);
-int		hook_mousemove(int x, int y, t_cub3d *cub3d);
-void	update_player(void);
-void	update_raycast(void);
+int	hook_mousemove(int x, int y, t_cub3d *cub3d)
+{
+	int		diff;
 
-#endif
+	(void) y;
+	diff = cub3d->config.last_x - x;
+	cub3d->config.last_x = x;
+	cub3d->player.pos.angle = correct_angle
+		(cub3d->player.pos.angle + diff * 0.005);
+	return (0);
+}

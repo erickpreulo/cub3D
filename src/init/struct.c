@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:28:32 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 13:27:18 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/25 10:03:05 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,7 @@ void	init_struct(void)
 	cub3d->config.hud.minimap = true;
 	cub3d->config.hud.ray = false;
 	cub3d->config.hud.logo = true;
+	cub3d->config.last_x = 0;
+	cub3d->config.fov = PI / 3;
+	cub3d->config.dr = cub3d->config.fov / WINDOW_WIDTH;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 23:16:08 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 13:04:49 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/25 10:03:28 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ typedef struct s_config
 	t_map		map;
 	char		*file;
 	t_hud		hud;
+	int			last_x;
+	double		fov;
+	double		dr;
 }				t_config;
 
 typedef struct s_ray

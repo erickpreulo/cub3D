@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 13:24:04 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/25 09:55:14 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ void	init_mlx(void)
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img, &cub3d->img.bpp,
 			&cub3d->img.line_length, &cub3d->img.endian);
-	mlx_hook(cub3d->win, 2, 1L << 0, key_pressed, cub3d);
-	mlx_hook(cub3d->win, 3, 1L << 1, key_released, cub3d);
-	mlx_hook(cub3d->win, 33, 1L << 17, exit_mlx, cub3d);
+	mlx_hook(cub3d->win, 2, 0, key_pressed, cub3d);
+	mlx_hook(cub3d->win, 3, 0, key_released, cub3d);
+	mlx_hook(cub3d->win, 6, 0, hook_mousemove, cub3d);
+	mlx_hook(cub3d->win, 17, 0, exit_mlx, cub3d);
 }
 
 void	init_map(void)
