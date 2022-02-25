@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   _utils.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:40:32 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 14:26:25 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/24 23:43:01 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ t_position	fix_boundaries(t_position pos);
 double		calc_dist(t_position pos1, t_position pos2);
 t_position	new_position(void);
 t_position	limit_position(void);
-int			invert_color(int c);
-
+int			apply_shadow(int color, double dist);
+int			apply_shadow_background(int color, double y);
 #endif

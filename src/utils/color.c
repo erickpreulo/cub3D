@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aneuwald <aneuwald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:47:09 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/24 13:31:24 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/25 00:04:00 by aneuwald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,26 @@ int	create_color(int r, int g, int b)
 	return ((r << 16) + (g << 8) + b);
 }
 
-int	invert_color(int c)
+int	apply_shadow(int color, double dist)
 {
-	t_color	color;
+	double div;
 
-	color.r = (c >> 8) & 0xff;
-	color.g = (c >> 16) & 0xff;
-	color.b = (c >> 24) & 0xff;
-	return (create_color(color.r, color.g, color.b));
+	div = dist / 0.9;
+	if (div <= 1)
+		return (color);
+	return (((int)(((0xFF0000 & color) >> 16) / div) << 16)
+		+ ((int)(((0x00FF00 & color) >> 8) / div) << 8)
+		+ ((int)((0x0000FF & color) / div)));
+}
+
+int	apply_shadow_background(int color, double y)
+{
+	double	div;
+	
+	div = fabs(y - (WINDOW_HEIGHT / 2)) / (WINDOW_HEIGHT / 2) * 0.7;
+	return (((int)(((0xFF0000 & color) >> 16) * div) << 16)
+		+ ((int)(((0x00FF00 & color) >> 8) * div) << 8)
+		+ ((int)((0x0000FF & color) * div)));
 }
 
 t_color	get_color(int c)
