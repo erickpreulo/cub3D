@@ -6,7 +6,7 @@
 /*   By: acanterg <acanterg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 08:35:42 by aneuwald          #+#    #+#             */
-/*   Updated: 2022/02/25 09:55:14 by acanterg         ###   ########.fr       */
+/*   Updated: 2022/02/25 11:00:27 by acanterg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init_map(void)
 	t_cub3d	*cub3d;
 
 	cub3d = get_cub3d();
-	cub3d->config.map.map = ft_calloc(100, sizeof(char *));
+	cub3d->config.map.map = ft_calloc(4999, sizeof(char *));
 	if (!cub3d->config.map.map)
 		exit_error("Calloc of map failed");
 	cub3d->config.map.height = 0;
